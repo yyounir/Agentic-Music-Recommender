@@ -1,0 +1,32 @@
+{
+  "prompt_ablation": {
+    "notices": [],
+    "simulated_baseline": true,
+    "baseline_label": "SIMULATED zero-shot baseline (offline engine in use) - assumed generic-prompt behaviour, full catalog as universe. NOTE: the real Gemini A/B contradicted this simulation on every headline metric; see model_card.md section 6.",
+    "specialised_label": "offline (heuristic-v1), Music Curator persona + 2 few-shot examples + filtered candidate pool",
+    "baseline": {
+      "cases": 6,
+      "schema_parse_rate": 1.0,
+      "format_adherence": 0.16666666666666666,
+      "constraint_adherence": 0.6666666666666666,
+      "rationale_grounding_rate": 0.0,
+      "hallucination_rate": 0.2,
+      "tracks": 30,
+      "fabricated_tracks": 6,
+      "mean_rationale_chars": 27.6,
+      "rationales_citing_a_number": 0.0
+    },
+    "specialised": {
+      "cases": 6,
+      "schema_parse_rate": 1.0,
+      "format_adherence": 1.0,
+      "constraint_adherence": 1.0,
+      "rationale_grounding_rate": 1.0,
+      "hallucination_rate": 0.0,
+      "tracks": 19,
+      "fabricated_tracks": 0,
+      "mean_rationale_chars": 175.78947368421052,
+      "rationales_citing_a_number": 1.0
+    }
+  }
+}

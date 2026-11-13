@@ -1,0 +1,314 @@
+{
+  "version": "1.0",
+  "description": "Secondary editorial knowledge source for the agentic music recommender. Curation notes are written against the exact tracks in data/songs.csv and are retrieved at query time to shape candidate selection, ranking and rationale generation.",
+  "track_notes": [
+    {
+      "song_id": 1,
+      "title": "Sunrise City",
+      "artist": "Neon Echo",
+      "mood_descriptors": ["sunlit", "euphoric", "optimistic", "wide-open", "celebratory"],
+      "listening_contexts": ["morning commute", "getting ready", "summer road trip", "shift opener", "sunday brunch"],
+      "editorial_note": "A glossy synth-pop opener built on a bright major-key hook and an unhurried 118 BPM pulse. Works as the first track of a playlist because the intro climbs rather than drops, so it lifts a room without demanding attention.",
+      "avoid_when": ["grief", "deep focus", "sleep"],
+      "pairs_well_with": [10, 12, 15]
+    },
+    {
+      "song_id": 2,
+      "title": "Midnight Coding",
+      "artist": "LoRoom",
+      "mood_descriptors": ["nocturnal", "unhurried", "head-down", "warm", "low-stakes"],
+      "listening_contexts": ["late night study", "debugging session", "deep work", "writing sprint", "insomnia"],
+      "editorial_note": "Dusty 78 BPM drum loop under a muted Rhodes figure. The melody never resolves, which is exactly why it disappears behind concentration instead of competing with it. A canonical late-night focus cut.",
+      "avoid_when": ["workout", "party", "driving long distances"],
+      "pairs_well_with": [9, 4, 6]
+    },
+    {
+      "song_id": 3,
+      "title": "Storm Runner",
+      "artist": "Voltline",
+      "mood_descriptors": ["driving", "urgent", "muscular", "adrenal", "cinematic"],
+      "listening_contexts": ["interval training", "night highway", "deadline crunch", "pre-game warmup"],
+      "editorial_note": "Guitar-forward rock at 152 BPM with a relentless eighth-note chug. The chorus holds tension rather than releasing it, making it a better pace-setter than a victory lap.",
+      "avoid_when": ["study", "dinner", "winding down"],
+      "pairs_well_with": [14, 5, 8]
+    },
+    {
+      "song_id": 4,
+      "title": "Library Rain",
+      "artist": "Paper Lanterns",
+      "mood_descriptors": ["hushed", "rainy", "soft-focus", "contemplative", "gentle"],
+      "listening_contexts": ["rainy afternoon", "reading", "quiet study hall", "journaling", "wind-down"],
+      "editorial_note": "Heavily acoustic lofi at 72 BPM, with tape hiss standing in for rain. The most textural track in the catalog and the safest pick when a listener asks for calm without asking for silence.",
+      "avoid_when": ["workout", "party", "driving"],
+      "pairs_well_with": [2, 6, 13]
+    },
+    {
+      "song_id": 5,
+      "title": "Gym Hero",
+      "artist": "Max Pulse",
+      "mood_descriptors": ["pumped", "relentless", "bright-aggressive", "motivational"],
+      "listening_contexts": ["workout", "last set", "sprint intervals", "hype playlist"],
+      "editorial_note": "Peak-energy pop engineered for a gym PA: 132 BPM, near-zero acousticness, and a chorus that lands on the downbeat. High valence keeps it motivating rather than punishing, which separates it from the metal entries.",
+      "avoid_when": ["focus", "sleep", "dinner", "melancholy"],
+      "pairs_well_with": [3, 1, 12]
+    },
+    {
+      "song_id": 6,
+      "title": "Spacewalk Thoughts",
+      "artist": "Orbit Bloom",
+      "mood_descriptors": ["weightless", "spacious", "glacial", "meditative", "ambient-drift"],
+      "listening_contexts": ["meditation", "sleep", "deep focus", "stargazing", "anxiety reset"],
+      "editorial_note": "Beatless ambient at a nominal 60 BPM. Near-total acousticness and very low energy make it the catalog floor for stimulation, which is precisely its use: it is the track you reach for when any rhythm would be too much.",
+      "avoid_when": ["workout", "party", "commute"],
+      "pairs_well_with": [13, 4, 2]
+    },
+    {
+      "song_id": 7,
+      "title": "Coffee Shop Stories",
+      "artist": "Slow Stereo",
+      "mood_descriptors": ["conversational", "warm", "loose-swing", "unobtrusive", "cozy"],
+      "listening_contexts": ["cafe background", "dinner party", "slow morning", "hosting friends", "rainy afternoon"],
+      "editorial_note": "Brushed-kit jazz at 90 BPM with high acousticness and relaxed phrasing. Designed to sit under conversation: the melody is present enough to be noticed when you listen and quiet enough to ignore when you do not.",
+      "avoid_when": ["workout", "high-intensity focus"],
+      "pairs_well_with": [16, 17, 11]
+    },
+    {
+      "song_id": 8,
+      "title": "Night Drive Loop",
+      "artist": "Neon Echo",
+      "mood_descriptors": ["neon", "moody", "after-hours", "retro-futurist", "brooding"],
+      "listening_contexts": ["night drive", "city walk after dark", "late shift", "solo evening"],
+      "editorial_note": "Synthwave at 110 BPM with mid-low valence: the arpeggio glitters while the bassline stays overcast. The catalog's definitive late-night-driving track and the bridge between its upbeat pop and its heavier rock entries.",
+      "avoid_when": ["morning energy", "children's listening"],
+      "pairs_well_with": [3, 15, 16]
+    },
+    {
+      "song_id": 9,
+      "title": "Focus Flow",
+      "artist": "LoRoom",
+      "mood_descriptors": ["steady", "task-locked", "neutral", "even-keeled", "unintrusive"],
+      "listening_contexts": ["deep work", "pomodoro blocks", "exam revision", "coding", "email triage"],
+      "editorial_note": "An 80 BPM lofi loop with deliberately flat dynamics and no vocal hook. It is the catalog's purpose-built concentration track; the absence of surprise is the feature, not a shortcoming.",
+      "avoid_when": ["party", "workout", "active listening"],
+      "pairs_well_with": [2, 4, 6]
+    },
+    {
+      "song_id": 10,
+      "title": "Rooftop Lights",
+      "artist": "Indigo Parade",
+      "mood_descriptors": ["golden-hour", "buoyant", "communal", "breezy", "uplifting"],
+      "listening_contexts": ["golden hour", "friends arriving", "summer evening", "pre-night-out"],
+      "editorial_note": "Indie pop at 124 BPM with jangling guitars over a danceable groove. More acoustic texture than the straight pop entries, which makes it the natural hinge between an acoustic set and a dance set.",
+      "avoid_when": ["sleep", "deep focus"],
+      "pairs_well_with": [1, 17, 12]
+    },
+    {
+      "song_id": 11,
+      "title": "Desert Postcard",
+      "artist": "Juniper Trail",
+      "mood_descriptors": ["nostalgic", "dusty", "wistful", "wide-horizon", "unhurried"],
+      "listening_contexts": ["long drive", "looking back", "porch evening", "packing to move", "autumn walk"],
+      "editorial_note": "Country storytelling at 96 BPM with mid acousticness and a lyric built on distance and memory. The catalog's clearest expression of nostalgia without tipping into sadness.",
+      "avoid_when": ["workout", "club"],
+      "pairs_well_with": [17, 16, 7]
+    },
+    {
+      "song_id": 12,
+      "title": "Island Rhythm",
+      "artist": "Coral Avenue",
+      "mood_descriptors": ["sunny", "playful", "loose-limbed", "buoyant", "vacation-bright"],
+      "listening_contexts": ["beach day", "cooking dinner", "backyard gathering", "lifting a bad mood"],
+      "editorial_note": "Reggae at 104 BPM with the highest valence in the catalog. The off-beat skank keeps energy moderate while the mood stays bright, so it raises a room without raising its pulse.",
+      "avoid_when": ["deep focus", "solemn occasions"],
+      "pairs_well_with": [1, 10, 15]
+    },
+    {
+      "song_id": 13,
+      "title": "Glass Cathedral",
+      "artist": "Silver Meridian",
+      "mood_descriptors": ["serene", "reverent", "crystalline", "still", "austere"],
+      "listening_contexts": ["meditation", "sleep", "reading", "grief", "quiet morning"],
+      "editorial_note": "Neo-classical strings and piano at 66 BPM with the catalog's highest acousticness. Low energy and mid valence give it poise rather than sadness, which makes it usable for both calm focus and consolation.",
+      "avoid_when": ["workout", "party", "driving"],
+      "pairs_well_with": [6, 4, 7]
+    },
+    {
+      "song_id": 14,
+      "title": "Thunder Bloom",
+      "artist": "Iron Orchard",
+      "mood_descriptors": ["defiant", "abrasive", "cathartic", "heavy", "unrelenting"],
+      "listening_contexts": ["heavy lifting", "anger release", "sprint finish", "high-intensity training"],
+      "editorial_note": "The catalog's ceiling for both tempo (168 BPM) and energy. Low valence makes the aggression cathartic rather than celebratory, so it belongs at the top of a workout arc, not at its start.",
+      "avoid_when": ["study", "sleep", "shared background listening", "dinner"],
+      "pairs_well_with": [3, 5]
+    },
+    {
+      "song_id": 15,
+      "title": "Velvet Weekend",
+      "artist": "The Marigold Club",
+      "mood_descriptors": ["sensual", "slinky", "late-evening", "groove-led", "confident"],
+      "listening_contexts": ["dinner party", "cocktail hour", "date night", "getting dressed up"],
+      "editorial_note": "Funk at 112 BPM with the catalog's highest danceability. The pocket is deep but the volume is restrained, which is why it works for an evening that wants groove without a dancefloor.",
+      "avoid_when": ["deep focus", "children's listening", "morning"],
+      "pairs_well_with": [8, 12, 10]
+    },
+    {
+      "song_id": 16,
+      "title": "Blue Hour Train",
+      "artist": "Harborlight",
+      "mood_descriptors": ["melancholic", "rain-streaked", "resigned", "slow-burn", "lonesome"],
+      "listening_contexts": ["rainy night", "heartbreak", "long train ride", "processing bad news", "solo drink"],
+      "editorial_note": "Blues at 84 BPM with the lowest valence in the catalog. High acousticness and restrained energy make it the honest pick for sadness, rather than a sad-sounding song that is secretly upbeat.",
+      "avoid_when": ["workout", "celebration", "party"],
+      "pairs_well_with": [11, 7, 8]
+    },
+    {
+      "song_id": 17,
+      "title": "Paper Kites",
+      "artist": "Wild Fern",
+      "mood_descriptors": ["hopeful", "open-hearted", "pastoral", "earnest", "gently-rising"],
+      "listening_contexts": ["morning walk", "fresh start", "recovery", "spring afternoon", "packing for a trip"],
+      "editorial_note": "Acoustic folk at 101 BPM that climbs from fingerpicking into group harmony. High acousticness with high valence gives it lift without percussion, so it brightens a quiet playlist without breaking its calm.",
+      "avoid_when": ["club", "heavy workout"],
+      "pairs_well_with": [11, 10, 7]
+    }
+  ],
+  "genre_notes": [
+    {
+      "genre": "lofi",
+      "curation_note": "Treated here as a functional genre: steady low-mid tempo, soft transients, no vocal hooks. Retrieve for focus, study, sleep-adjacent and background requests.",
+      "typical_contexts": ["study", "deep work", "late night", "wind-down"]
+    },
+    {
+      "genre": "ambient",
+      "curation_note": "Beatless and texture-first. The correct answer when a listener wants calm but finds even a lofi drum loop too present.",
+      "typical_contexts": ["meditation", "sleep", "anxiety reset"]
+    },
+    {
+      "genre": "pop",
+      "curation_note": "High valence, high danceability, low acousticness. Retrieve for mood-lifting, morning and hype requests; de-prioritise for focus and sleep.",
+      "typical_contexts": ["morning", "workout", "getting ready"]
+    },
+    {
+      "genre": "rock",
+      "curation_note": "Guitar-driven, high energy, mid-low valence. Best for momentum and intensity rather than joy.",
+      "typical_contexts": ["workout", "night drive", "deadline"]
+    },
+    {
+      "genre": "metal",
+      "curation_note": "Catalog ceiling for tempo and energy with low valence. Reserve for catharsis and heavy training; exclude by default from shared-background requests.",
+      "typical_contexts": ["heavy lifting", "anger release"]
+    },
+    {
+      "genre": "jazz",
+      "curation_note": "Brushed, conversational and acoustic. The default for hosting and cafe-style background listening.",
+      "typical_contexts": ["dinner party", "cafe", "slow morning"]
+    },
+    {
+      "genre": "classical",
+      "curation_note": "Serene and highly acoustic. Overlaps with ambient for calm requests but carries more melodic movement.",
+      "typical_contexts": ["reading", "meditation", "quiet morning"]
+    },
+    {
+      "genre": "synthwave",
+      "curation_note": "Retro-futurist, nocturnal, mid-tempo. The catalog's signature night-driving texture.",
+      "typical_contexts": ["night drive", "late shift", "city walk"]
+    },
+    {
+      "genre": "indie pop",
+      "curation_note": "Pop structure with acoustic texture; bridges acoustic and dance-leaning sets.",
+      "typical_contexts": ["golden hour", "summer evening"]
+    },
+    {
+      "genre": "country",
+      "curation_note": "Narrative and nostalgic, mid tempo, mid acousticness. Retrieve for memory, travel and looking-back prompts.",
+      "typical_contexts": ["long drive", "autumn walk"]
+    },
+    {
+      "genre": "reggae",
+      "curation_note": "Highest-valence genre in the catalog at moderate energy. The efficient answer to 'lift my mood without hyping me up'.",
+      "typical_contexts": ["beach day", "cooking", "mood lift"]
+    },
+    {
+      "genre": "funk",
+      "curation_note": "Groove-led and danceable with restrained volume. Best for evenings that want movement, not volume.",
+      "typical_contexts": ["cocktail hour", "date night"]
+    },
+    {
+      "genre": "blues",
+      "curation_note": "Lowest valence in the catalog. Retrieve for genuine sadness prompts rather than substituting a merely slow track.",
+      "typical_contexts": ["rainy night", "heartbreak"]
+    },
+    {
+      "genre": "folk",
+      "curation_note": "Acoustic and hopeful. Lifts a quiet playlist without introducing percussion or volume.",
+      "typical_contexts": ["morning walk", "fresh start"]
+    }
+  ],
+  "context_notes": [
+    {
+      "context": "deep focus",
+      "aliases": ["study", "studying", "concentration", "coding", "homework", "deep work", "reading", "exam", "revision", "writing", "focus"],
+      "curation_note": "Prioritise low-to-mid energy, 60-95 BPM, no vocal hooks and flat dynamics. lofi, ambient and classical retrieve first; pop, rock and metal are poor fits regardless of how well their numeric features match.",
+      "preferred_genres": ["lofi", "ambient", "classical"],
+      "preferred_bpm": [60, 95],
+      "discouraged_genres": ["metal", "rock", "pop"]
+    },
+    {
+      "context": "workout",
+      "aliases": ["gym", "exercise", "running", "lifting", "training", "cardio", "sprint", "hiit", "hype", "pump up", "pumped"],
+      "curation_note": "Prioritise energy above 0.75 and tempo above 125 BPM. Sequence from bright-aggressive pop into rock and metal so the arc climbs rather than peaking immediately.",
+      "preferred_genres": ["pop", "rock", "metal"],
+      "preferred_bpm": [125, 175],
+      "discouraged_genres": ["ambient", "classical", "lofi"]
+    },
+    {
+      "context": "late night drive",
+      "aliases": ["night drive", "late night drive", "driving at night", "night driving", "highway", "cruising", "city at night", "neon"],
+      "curation_note": "Mid tempo, mid-low valence, synth or guitar texture. Avoid both very high valence pop and beatless ambient; the goal is momentum with an overcast mood.",
+      "preferred_genres": ["synthwave", "rock", "blues"],
+      "preferred_bpm": [100, 155],
+      "discouraged_genres": ["classical", "ambient"]
+    },
+    {
+      "context": "wind down",
+      "aliases": ["sleep", "bedtime", "relax", "calm", "unwind", "meditation", "anxiety", "rest", "quiet", "chill out", "soothing"],
+      "curation_note": "Prioritise acousticness above 0.65, energy below 0.45 and tempo below 95 BPM. Ambient and classical first, then lofi and jazz.",
+      "preferred_genres": ["ambient", "classical", "lofi", "jazz"],
+      "preferred_bpm": [55, 95],
+      "discouraged_genres": ["metal", "rock", "pop"]
+    },
+    {
+      "context": "hosting",
+      "aliases": ["dinner party", "party", "guests", "cooking", "brunch", "cocktail", "background", "friends over", "gathering", "dinner"],
+      "curation_note": "Mid tempo and mid-high valence with conversational dynamics. Jazz, funk, reggae and indie pop retrieve first; avoid metal and beatless ambient.",
+      "preferred_genres": ["jazz", "funk", "reggae", "indie pop"],
+      "preferred_bpm": [88, 125],
+      "discouraged_genres": ["metal", "ambient"]
+    },
+    {
+      "context": "heartbreak",
+      "aliases": ["sad", "sadness", "breakup", "grief", "crying", "lonely", "melancholy", "melancholic", "down", "blue", "heartbroken"],
+      "curation_note": "Prioritise valence below 0.5. Prefer genuine low-valence writing (blues, country) over merely slow instrumentals, which read as calm rather than sad.",
+      "preferred_genres": ["blues", "country", "classical"],
+      "preferred_bpm": [60, 105],
+      "discouraged_genres": ["pop", "reggae"]
+    },
+    {
+      "context": "mood lift",
+      "aliases": ["happy", "cheer up", "upbeat", "good mood", "feel good", "sunny", "joyful", "celebrate", "cheerful"],
+      "curation_note": "Prioritise valence above 0.75 without requiring high energy; reggae and indie pop lift a mood at moderate tempo, which suits listeners who do not want to be hyped up.",
+      "preferred_genres": ["reggae", "pop", "indie pop", "folk"],
+      "preferred_bpm": [95, 135],
+      "discouraged_genres": ["metal", "blues"]
+    },
+    {
+      "context": "nostalgia",
+      "aliases": ["nostalgic", "memories", "looking back", "throwback", "reminisce", "homesick", "wistful"],
+      "curation_note": "Narrative lyrics and mid tempo with warm acoustic texture. Country and folk retrieve first, with blues as the darker variant.",
+      "preferred_genres": ["country", "folk", "blues"],
+      "preferred_bpm": [80, 110],
+      "discouraged_genres": ["metal", "pop"]
+    }
+  ]
+}

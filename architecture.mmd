@@ -1,0 +1,77 @@
+%% Agentic Music Recommender - implemented data flow
+%% Render with: https://mermaid.live  or  mmdc -i architecture.mmd -o architecture.png
+flowchart TD
+    subgraph INPUT["Input"]
+        UI["Streamlit UI<br/>streamlit run src/main.py"]
+        CLI["CLI<br/>python -m src.main --demo | --query"]
+    end
+
+    UI --> VAL
+    CLI --> VAL
+    VAL["validate_query()<br/>type, empty, length limits<br/>src/recommender.py"]
+
+    VAL --> PLAN
+
+    subgraph STEP1["Step 1 - Intent Planning"]
+        PLAN["Intent Planner<br/>Gemini + response_schema=Plan<br/>(offline heuristic planner when no API key)"]
+        PLANV["Pydantic validation<br/>Plan: moods, genres, contexts,<br/>exclusions, BPM/energy bounds,<br/>track_count, unsupported_requests"]
+        PLAN --> PLANV
+    end
+
+    PLANV --> RET
+
+    subgraph STEP2["Step 2 - Multi-Source RAG Retrieval"]
+        RET["retrieve_candidates()<br/>src/retrieval.py"]
+        CSV[("data/songs.csv<br/>17 tracks")]
+        NOTES[("data/editorial_notes.json<br/>17 track notes<br/>14 genre notes<br/>8 context notes")]
+        PANDAS["Deterministic Pandas filter<br/>exclusions + BPM + energy bounds<br/>(hard constraints, never relaxed)"]
+        LEX["Lexical retrieval over notes<br/>track / genre / context passages"]
+        BLEND["Blended ranking<br/>total = feature_score + 2.5 x editorial_score<br/>context notes add genre priors + tempo priors"]
+        RET --> CSV --> PANDAS
+        RET --> NOTES --> LEX
+        PANDAS --> BLEND
+        LEX --> BLEND
+    end
+
+    BLEND --> EMPTY{"Any track satisfies<br/>every hard constraint?"}
+    EMPTY -- "no" --> NOMATCH["Explicit empty result<br/>+ near-miss report<br/>(no model call wasted)"]
+    EMPTY -- "yes" --> CUR
+
+    subgraph STEP3["Step 3 - Specialised Curation"]
+        CUR["Music Curator persona<br/>constrained system prompt<br/>+ 2 few-shot examples<br/>+ closed candidate pool<br/>src/prompts.py"]
+        OUT["Structured output<br/>CuratedPlaylist (Pydantic)"]
+        CUR --> OUT
+    end
+
+    OUT --> VER
+
+    subgraph STEP4["Step 4 - Guardrail Verification"]
+        VER["verify_playlist()<br/>src/guardrails.py"]
+        C1["format<br/>count, duplicates, schema"]
+        C2["hallucination<br/>song_id exists; title + artist<br/>match songs.csv verbatim"]
+        C3["constraint<br/>exclusions, BPM, energy"]
+        C4["grounding<br/>rationale cites real metadata"]
+        VER --> C1 & C2 & C3 & C4
+    end
+
+    C1 & C2 & C3 & C4 --> GATE{"All checks pass?"}
+
+    GATE -- "no, retries left (max 3)" --> FIX["Self-correction<br/>violations fed back verbatim<br/>+ candidate pool re-sent"]
+    FIX --> CUR
+
+    GATE -- "no, retries exhausted" --> FALL["Deterministic fallback<br/>top-ranked verified candidates<br/>(no model involved)"]
+    GATE -- "yes" --> FINAL
+
+    FALL --> FINAL
+    NOMATCH --> FINAL
+    FINAL["Final Output<br/>AgentResult: tracks, rationales,<br/>guardrail status, retries, notices"]
+
+    FINAL --> LOG[("Trace Logger<br/>logs/agent_traces.json<br/>query, plan, retrieval, every attempt,<br/>every guardrail verdict, final output")]
+    FINAL --> RENDER["Streamlit cards + reasoning trace<br/>/ CLI step-by-step report"]
+
+    classDef store fill:#eef3fb,stroke:#5b7fb5,stroke-width:1px,color:#13283f
+    classDef check fill:#f3f7ee,stroke:#7a9a5b,stroke-width:1px,color:#1f2f14
+    classDef danger fill:#fdf0ee,stroke:#c2705c,stroke-width:1px,color:#3f1a13
+    class CSV,NOTES,LOG store
+    class C1,C2,C3,C4,VER check
+    class FIX,FALL,NOMATCH danger

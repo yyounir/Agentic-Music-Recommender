@@ -1,0 +1,32 @@
+{
+  "prompt_ablation": {
+    "notices": [],
+    "simulated_baseline": false,
+    "baseline_label": "Gemini, zero-shot generic prompt, full catalog in context",
+    "specialised_label": "gemini (gemini-3.1-flash-lite), Music Curator persona + 2 few-shot examples + filtered candidate pool",
+    "baseline": {
+      "cases": 6,
+      "schema_parse_rate": 1.0,
+      "format_adherence": 1.0,
+      "constraint_adherence": 1.0,
+      "rationale_grounding_rate": 1.0,
+      "hallucination_rate": 0.0,
+      "tracks": 19,
+      "fabricated_tracks": 0,
+      "mean_rationale_chars": 87.84210526315789,
+      "rationales_citing_a_number": 0.3684210526315789
+    },
+    "specialised": {
+      "cases": 6,
+      "schema_parse_rate": 1.0,
+      "format_adherence": 1.0,
+      "constraint_adherence": 1.0,
+      "rationale_grounding_rate": 1.0,
+      "hallucination_rate": 0.0,
+      "tracks": 19,
+      "fabricated_tracks": 0,
+      "mean_rationale_chars": 141.6315789473684,
+      "rationales_citing_a_number": 1.0
+    }
+  }
+}
