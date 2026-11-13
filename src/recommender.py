@@ -440,10 +440,12 @@ class MusicCuratorAgent:
             parse_error: Optional[str] = None
             parsed: Optional[CuratedPlaylist] = None
             raw_output = ""
+            engine_failed = False
             try:
                 raw_output = self.engine.curate(request)
             except Exception as exc:  # noqa: BLE001 - engine failure must not crash the run
                 parse_error = f"{type(exc).__name__}: {exc}"
+                engine_failed = True
             if parse_error is None:
                 try:
                     parsed = CuratedPlaylist.model_validate(extract_json(raw_output))
@@ -487,6 +489,18 @@ class MusicCuratorAgent:
 
             playlist, report = parsed, current_report
             if current_report.passed and parsed is not None:
+                break
+
+            # A transport failure (API down, quota exhausted, every fallback model
+            # exhausted) is the absence of an answer, not a bad answer. Re-prompting
+            # cannot fix it and each attempt costs the full retry/backoff budget, so
+            # go straight to the deterministic fallback instead of making the user
+            # wait minutes for three more identical failures.
+            if engine_failed:
+                notices.append(
+                    "The generation API could not be reached, so the playlist was "
+                    "built by deterministic ranking instead."
+                )
                 break
 
             feedback, previous = current_report, parsed

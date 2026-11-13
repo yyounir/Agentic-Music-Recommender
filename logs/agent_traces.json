@@ -34414,5 +34414,1145 @@
     },
     "duration_ms": 7,
     "notices": []
+  },
+  {
+    "trace_id": "trace-89826f81cf3f",
+    "timestamp": "2026-11-13T18:06:19+00:00",
+    "query": "Three chill acoustic songs for a rainy afternoon",
+    "provider": "offline",
+    "model": "heuristic-v1",
+    "plan": {
+      "moods": [
+        "chill"
+      ],
+      "genres": [],
+      "listening_contexts": [],
+      "exclude_genres": [],
+      "exclude_artists": [],
+      "exclude_moods": [],
+      "acoustic_preference": "prefer",
+      "track_count": 5,
+      "rationale": "Parsed request as moods: chill",
+      "unsupported_requests": []
+    },
+    "retrieval": {
+      "candidates": [
+        {
+          "song_id": 4,
+          "title": "Library Rain",
+          "artist": "Paper Lanterns",
+          "genre": "lofi",
+          "mood": "chill",
+          "energy": 0.35,
+          "tempo_bpm": 72,
+          "valence": 0.6,
+          "danceability": 0.58,
+          "acousticness": 0.86,
+          "feature_score": 4.44,
+          "editorial_score": 2.5,
+          "total_score": 6.94,
+          "editorial_note": "Heavily acoustic lofi at 72 BPM, with tape hiss standing in for rain. The most textural track in the catalog and the safest pick when a listener asks for calm without asking for silence.",
+          "why_matched": [
+            "requested mood (chill)",
+            "acoustic texture (0.86)",
+            "matched editorial notes"
+          ]
+        },
+        {
+          "song_id": 6,
+          "title": "Spacewalk Thoughts",
+          "artist": "Orbit Bloom",
+          "genre": "ambient",
+          "mood": "chill",
+          "energy": 0.28,
+          "tempo_bpm": 60,
+          "valence": 0.65,
+          "danceability": 0.41,
+          "acousticness": 0.92,
+          "feature_score": 4.5425,
+          "editorial_score": 0.0,
+          "total_score": 4.5425,
+          "editorial_note": "Beatless ambient at a nominal 60 BPM. Near-total acousticness and very low energy make it the catalog floor for stimulation, which is precisely its use: it is the track you reach for when any rhythm would be too much.",
+          "why_matched": [
+            "requested mood (chill)",
+            "acoustic texture (0.92)"
+          ]
+        },
+        {
+          "song_id": 2,
+          "title": "Midnight Coding",
+          "artist": "LoRoom",
+          "genre": "lofi",
+          "mood": "chill",
+          "energy": 0.42,
+          "tempo_bpm": 78,
+          "valence": 0.56,
+          "danceability": 0.62,
+          "acousticness": 0.71,
+          "feature_score": 4.205,
+          "editorial_score": 0.0,
+          "total_score": 4.205,
+          "editorial_note": "Dusty 78 BPM drum loop under a muted Rhodes figure. The melody never resolves, which is exactly why it disappears behind concentration instead of competing with it. A canonical late-night focus cut.",
+          "why_matched": [
+            "requested mood (chill)",
+            "acoustic texture (0.71)"
+          ]
+        },
+        {
+          "song_id": 7,
+          "title": "Coffee Shop Stories",
+          "artist": "Slow Stereo",
+          "genre": "jazz",
+          "mood": "relaxed",
+          "energy": 0.37,
+          "tempo_bpm": 90,
+          "valence": 0.71,
+          "danceability": 0.54,
+          "acousticness": 0.89,
+          "feature_score": 1.5125,
+          "editorial_score": 1.5995,
+          "total_score": 3.112,
+          "editorial_note": "Brushed-kit jazz at 90 BPM with high acousticness and relaxed phrasing. Designed to sit under conversation: the melody is present enough to be noticed when you listen and quiet enough to ignore when you do not.",
+          "why_matched": [
+            "acoustic texture (0.89)",
+            "matched editorial notes"
+          ]
+        },
+        {
+          "song_id": 17,
+          "title": "Paper Kites",
+          "artist": "Wild Fern",
+          "genre": "folk",
+          "mood": "hopeful",
+          "energy": 0.61,
+          "tempo_bpm": 101,
+          "valence": 0.82,
+          "danceability": 0.57,
+          "acousticness": 0.73,
+          "feature_score": 1.3,
+          "editorial_score": 1.621,
+          "total_score": 2.921,
+          "editorial_note": "Acoustic folk at 101 BPM that climbs from fingerpicking into group harmony. High acousticness with high valence gives it lift without percussion, so it brightens a quiet playlist without breaking its calm.",
+          "why_matched": [
+            "acoustic texture (0.73)",
+            "matched editorial notes"
+          ]
+        },
+        {
+          "song_id": 16,
+          "title": "Blue Hour Train",
+          "artist": "Harborlight",
+          "genre": "blues",
+          "mood": "melancholic",
+          "energy": 0.46,
+          "tempo_bpm": 84,
+          "valence": 0.29,
+          "danceability": 0.49,
+          "acousticness": 0.67,
+          "feature_score": 1.0775,
+          "editorial_score": 0.8105,
+          "total_score": 1.888,
+          "editorial_note": "Blues at 84 BPM with the lowest valence in the catalog. High acousticness and restrained energy make it the honest pick for sadness, rather than a sad-sounding song that is secretly upbeat.",
+          "why_matched": [
+            "acoustic texture (0.67)",
+            "matched editorial notes"
+          ]
+        },
+        {
+          "song_id": 13,
+          "title": "Glass Cathedral",
+          "artist": "Silver Meridian",
+          "genre": "classical",
+          "mood": "serene",
+          "energy": 0.22,
+          "tempo_bpm": 66,
+          "valence": 0.73,
+          "danceability": 0.31,
+          "acousticness": 0.94,
+          "feature_score": 1.5925,
+          "editorial_score": 0.0,
+          "total_score": 1.5925,
+          "editorial_note": "Neo-classical strings and piano at 66 BPM with the catalog's highest acousticness. Low energy and mid valence give it poise rather than sadness, which makes it usable for both calm focus and consolation.",
+          "why_matched": [
+            "acoustic texture (0.94)"
+          ]
+        },
+        {
+          "song_id": 10,
+          "title": "Rooftop Lights",
+          "artist": "Indigo Parade",
+          "genre": "indie pop",
+          "mood": "happy",
+          "energy": 0.76,
+          "tempo_bpm": 124,
+          "valence": 0.81,
+          "danceability": 0.82,
+          "acousticness": 0.35,
+          "feature_score": 0.7275,
+          "editorial_score": 0.8333,
+          "total_score": 1.5608,
+          "editorial_note": "Indie pop at 124 BPM with jangling guitars over a danceable groove. More acoustic texture than the straight pop entries, which makes it the natural hinge between an acoustic set and a dance set.",
+          "why_matched": [
+            "matched editorial notes"
+          ]
+        },
+        {
+          "song_id": 9,
+          "title": "Focus Flow",
+          "artist": "LoRoom",
+          "genre": "lofi",
+          "mood": "focused",
+          "energy": 0.4,
+          "tempo_bpm": 80,
+          "valence": 0.59,
+          "danceability": 0.6,
+          "acousticness": 0.78,
+          "feature_score": 1.3175,
+          "editorial_score": 0.0,
+          "total_score": 1.3175,
+          "editorial_note": "An 80 BPM lofi loop with deliberately flat dynamics and no vocal hook. It is the catalog's purpose-built concentration track; the absence of surprise is the feature, not a shortcoming.",
+          "why_matched": [
+            "acoustic texture (0.78)"
+          ]
+        },
+        {
+          "song_id": 11,
+          "title": "Desert Postcard",
+          "artist": "Juniper Trail",
+          "genre": "country",
+          "mood": "nostalgic",
+          "energy": 0.54,
+          "tempo_bpm": 96,
+          "valence": 0.68,
+          "danceability": 0.63,
+          "acousticness": 0.52,
+          "feature_score": 0.95,
+          "editorial_score": 0.0,
+          "total_score": 0.95,
+          "editorial_note": "Country storytelling at 96 BPM with mid acousticness and a lyric built on distance and memory. The catalog's clearest expression of nostalgia without tipping into sadness.",
+          "why_matched": []
+        }
+      ],
+      "near_misses": [],
+      "editorial_hits": [
+        {
+          "source": "track_note",
+          "key": "Library Rain - Paper Lanterns",
+          "song_id": 4,
+          "score": 0.5071,
+          "text": "Heavily acoustic lofi at 72 BPM, with tape hiss standing in for rain. The most textural track in the catalog and the safest pick when a listener asks for calm without asking for silence."
+        },
+        {
+          "source": "track_note",
+          "key": "Paper Kites - Wild Fern",
+          "song_id": 17,
+          "score": 0.3288,
+          "text": "Acoustic folk at 101 BPM that climbs from fingerpicking into group harmony. High acousticness with high valence gives it lift without percussion, so it brightens a quiet playlist without breaking its calm."
+        },
+        {
+          "source": "track_note",
+          "key": "Coffee Shop Stories - Slow Stereo",
+          "song_id": 7,
+          "score": 0.3244,
+          "text": "Brushed-kit jazz at 90 BPM with high acousticness and relaxed phrasing. Designed to sit under conversation: the melody is present enough to be noticed when you listen and quiet enough to ignore when you do not."
+        },
+        {
+          "source": "track_note",
+          "key": "Rooftop Lights - Indigo Parade",
+          "song_id": 10,
+          "score": 0.169,
+          "text": "Indie pop at 124 BPM with jangling guitars over a danceable groove. More acoustic texture than the straight pop entries, which makes it the natural hinge between an acoustic set and a dance set."
+        },
+        {
+          "source": "track_note",
+          "key": "Blue Hour Train - Harborlight",
+          "song_id": 16,
+          "score": 0.1644,
+          "text": "Blues at 84 BPM with the lowest valence in the catalog. High acousticness and restrained energy make it the honest pick for sadness, rather than a sad-sounding song that is secretly upbeat."
+        }
+      ],
+      "filters_applied": [
+        "none (no hard constraints in plan)"
+      ],
+      "relaxations": [],
+      "catalog_size": 17,
+      "strict_match_count": 17
+    },
+    "attempts": [
+      {
+        "attempt": 1,
+        "prompt_kind": "initial",
+        "raw_model_output": "{\"playlist_name\": \"Chill Mix\", \"summary\": \"5 track(s) spanning 60-101 BPM across ambient, folk, jazz, lofi, ranked by catalog features blended with retrieved editorial notes.\", \"tracks\": [{\"song_id\": 4, \"title\": \"Library Rain\", \"artist\": \"Paper Lanterns\", \"reason\": \"Lofi at 72 bpm with 0.35 energy and 0.60 valence; reads as hushed; acousticness 0.86. Editorial note: Heavily acoustic lofi at 72 BPM, with tape hiss standing in for rain.\"}, {\"song_id\": 6, \"title\": \"Spacewalk Thoughts\", \"artist\": \"Orbit Bloom\", \"reason\": \"Ambient at 60 bpm with 0.28 energy and 0.65 valence; reads as weightless; acousticness 0.92. Editorial note: Beatless ambient at a nominal 60 BPM.\"}, {\"song_id\": 2, \"title\": \"Midnight Coding\", \"artist\": \"LoRoom\", \"reason\": \"Lofi at 78 bpm with 0.42 energy and 0.56 valence; reads as nocturnal; acousticness 0.71. Editorial note: Dusty 78 BPM drum loop under a muted Rhodes figure.\"}, {\"song_id\": 7, \"title\": \"Coffee Shop Stories\", \"artist\": \"Slow Stereo\", \"reason\": \"Jazz at 90 bpm with 0.37 energy and 0.71 valence; reads as conversational; acousticness 0.89. Editorial note: Brushed-kit jazz at 90 BPM with high acousticness and relaxed phrasing.\"}, {\"song_id\": 17, \"title\": \"Paper Kites\", \"artist\": \"Wild Fern\", \"reason\": \"Folk at 101 bpm with 0.61 energy and 0.82 valence; reads as hopeful; acousticness 0.73. Editorial note: Acoustic folk at 101 BPM that climbs from fingerpicking into group harmony.\"}]}",
+        "parsed_playlist": {
+          "playlist_name": "Chill Mix",
+          "summary": "5 track(s) spanning 60-101 BPM across ambient, folk, jazz, lofi, ranked by catalog features blended with retrieved editorial notes.",
+          "tracks": [
+            {
+              "song_id": 4,
+              "title": "Library Rain",
+              "artist": "Paper Lanterns",
+              "reason": "Lofi at 72 bpm with 0.35 energy and 0.60 valence; reads as hushed; acousticness 0.86. Editorial note: Heavily acoustic lofi at 72 BPM, with tape hiss standing in for rain."
+            },
+            {
+              "song_id": 6,
+              "title": "Spacewalk Thoughts",
+              "artist": "Orbit Bloom",
+              "reason": "Ambient at 60 bpm with 0.28 energy and 0.65 valence; reads as weightless; acousticness 0.92. Editorial note: Beatless ambient at a nominal 60 BPM."
+            },
+            {
+              "song_id": 2,
+              "title": "Midnight Coding",
+              "artist": "LoRoom",
+              "reason": "Lofi at 78 bpm with 0.42 energy and 0.56 valence; reads as nocturnal; acousticness 0.71. Editorial note: Dusty 78 BPM drum loop under a muted Rhodes figure."
+            },
+            {
+              "song_id": 7,
+              "title": "Coffee Shop Stories",
+              "artist": "Slow Stereo",
+              "reason": "Jazz at 90 bpm with 0.37 energy and 0.71 valence; reads as conversational; acousticness 0.89. Editorial note: Brushed-kit jazz at 90 BPM with high acousticness and relaxed phrasing."
+            },
+            {
+              "song_id": 17,
+              "title": "Paper Kites",
+              "artist": "Wild Fern",
+              "reason": "Folk at 101 bpm with 0.61 energy and 0.82 valence; reads as hopeful; acousticness 0.73. Editorial note: Acoustic folk at 101 BPM that climbs from fingerpicking into group harmony."
+            }
+          ]
+        },
+        "guardrail": {
+          "passed": true,
+          "violations": [],
+          "checks_run": [
+            "format",
+            "hallucination",
+            "constraint",
+            "grounding"
+          ]
+        }
+      }
+    ],
+    "retries": 0,
+    "fallback_used": false,
+    "final_output": {
+      "query": "Three chill acoustic songs for a rainy afternoon",
+      "playlist_name": "Chill Mix",
+      "summary": "5 track(s) spanning 60-101 BPM across ambient, folk, jazz, lofi, ranked by catalog features blended with retrieved editorial notes.",
+      "recommendations": [
+        {
+          "song_id": 4,
+          "title": "Library Rain",
+          "artist": "Paper Lanterns",
+          "genre": "lofi",
+          "mood": "chill",
+          "tempo_bpm": 72,
+          "energy": 0.35,
+          "reason": "Lofi at 72 bpm with 0.35 energy and 0.60 valence; reads as hushed; acousticness 0.86. Editorial note: Heavily acoustic lofi at 72 BPM, with tape hiss standing in for rain.",
+          "editorial_note": "Heavily acoustic lofi at 72 BPM, with tape hiss standing in for rain. The most textural track in the catalog and the safest pick when a listener asks for calm without asking for silence."
+        },
+        {
+          "song_id": 6,
+          "title": "Spacewalk Thoughts",
+          "artist": "Orbit Bloom",
+          "genre": "ambient",
+          "mood": "chill",
+          "tempo_bpm": 60,
+          "energy": 0.28,
+          "reason": "Ambient at 60 bpm with 0.28 energy and 0.65 valence; reads as weightless; acousticness 0.92. Editorial note: Beatless ambient at a nominal 60 BPM.",
+          "editorial_note": "Beatless ambient at a nominal 60 BPM. Near-total acousticness and very low energy make it the catalog floor for stimulation, which is precisely its use: it is the track you reach for when any rhythm would be too much."
+        },
+        {
+          "song_id": 2,
+          "title": "Midnight Coding",
+          "artist": "LoRoom",
+          "genre": "lofi",
+          "mood": "chill",
+          "tempo_bpm": 78,
+          "energy": 0.42,
+          "reason": "Lofi at 78 bpm with 0.42 energy and 0.56 valence; reads as nocturnal; acousticness 0.71. Editorial note: Dusty 78 BPM drum loop under a muted Rhodes figure.",
+          "editorial_note": "Dusty 78 BPM drum loop under a muted Rhodes figure. The melody never resolves, which is exactly why it disappears behind concentration instead of competing with it. A canonical late-night focus cut."
+        },
+        {
+          "song_id": 7,
+          "title": "Coffee Shop Stories",
+          "artist": "Slow Stereo",
+          "genre": "jazz",
+          "mood": "relaxed",
+          "tempo_bpm": 90,
+          "energy": 0.37,
+          "reason": "Jazz at 90 bpm with 0.37 energy and 0.71 valence; reads as conversational; acousticness 0.89. Editorial note: Brushed-kit jazz at 90 BPM with high acousticness and relaxed phrasing.",
+          "editorial_note": "Brushed-kit jazz at 90 BPM with high acousticness and relaxed phrasing. Designed to sit under conversation: the melody is present enough to be noticed when you listen and quiet enough to ignore when you do not."
+        },
+        {
+          "song_id": 17,
+          "title": "Paper Kites",
+          "artist": "Wild Fern",
+          "genre": "folk",
+          "mood": "hopeful",
+          "tempo_bpm": 101,
+          "energy": 0.61,
+          "reason": "Folk at 101 bpm with 0.61 energy and 0.82 valence; reads as hopeful; acousticness 0.73. Editorial note: Acoustic folk at 101 BPM that climbs from fingerpicking into group harmony.",
+          "editorial_note": "Acoustic folk at 101 BPM that climbs from fingerpicking into group harmony. High acousticness with high valence gives it lift without percussion, so it brightens a quiet playlist without breaking its calm."
+        }
+      ],
+      "plan": {
+        "moods": [
+          "chill"
+        ],
+        "genres": [],
+        "listening_contexts": [],
+        "exclude_genres": [],
+        "exclude_artists": [],
+        "exclude_moods": [],
+        "acoustic_preference": "prefer",
+        "track_count": 5,
+        "rationale": "Parsed request as moods: chill",
+        "unsupported_requests": []
+      },
+      "guardrail": {
+        "passed": true,
+        "violations": [],
+        "checks_run": [
+          "format",
+          "hallucination",
+          "constraint",
+          "grounding"
+        ]
+      },
+      "retries": 0,
+      "fallback_used": false,
+      "provider": "offline",
+      "notices": [],
+      "trace_id": "trace-89826f81cf3f"
+    },
+    "duration_ms": 16,
+    "notices": []
+  },
+  {
+    "trace_id": "trace-11eac7020aea",
+    "timestamp": "2026-11-13T20:47:24+00:00",
+    "query": "Build me a 4-song workout playlist that climbs in intensity, but no metal, and everything has to be at least 120 BPM.",
+    "provider": "offline",
+    "model": "heuristic-v1",
+    "plan": {
+      "moods": [],
+      "genres": [],
+      "listening_contexts": [
+        "workout"
+      ],
+      "exclude_genres": [
+        "metal"
+      ],
+      "exclude_artists": [],
+      "exclude_moods": [],
+      "min_bpm": 120,
+      "acoustic_preference": "any",
+      "track_count": 5,
+      "rationale": "Parsed request as context: workout; tempo: 120..- BPM; exclusions: metal",
+      "unsupported_requests": []
+    },
+    "retrieval": {
+      "candidates": [
+        {
+          "song_id": 5,
+          "title": "Gym Hero",
+          "artist": "Max Pulse",
+          "genre": "pop",
+          "mood": "intense",
+          "energy": 0.93,
+          "tempo_bpm": 132,
+          "valence": 0.77,
+          "danceability": 0.88,
+          "acousticness": 0.05,
+          "feature_score": 3.1925,
+          "editorial_score": 2.4296,
+          "total_score": 5.6221,
+          "editorial_note": "Peak-energy pop engineered for a gym PA: 132 BPM, near-zero acousticness, and a chorus that lands on the downbeat. High valence keeps it motivating rather than punishing, which separates it from the metal entries.",
+          "why_matched": [
+            "editorially preferred for workout",
+            "tempo 132 BPM fits workout",
+            "matched editorial notes"
+          ]
+        },
+        {
+          "song_id": 3,
+          "title": "Storm Runner",
+          "artist": "Voltline",
+          "genre": "rock",
+          "mood": "intense",
+          "energy": 0.91,
+          "tempo_bpm": 152,
+          "valence": 0.48,
+          "danceability": 0.66,
+          "acousticness": 0.1,
+          "feature_score": 3.12,
+          "editorial_score": 0.616,
+          "total_score": 3.736,
+          "editorial_note": "Guitar-forward rock at 152 BPM with a relentless eighth-note chug. The chorus holds tension rather than releasing it, making it a better pace-setter than a victory lap.",
+          "why_matched": [
+            "editorially preferred for workout",
+            "tempo 152 BPM fits workout",
+            "matched editorial notes"
+          ]
+        },
+        {
+          "song_id": 10,
+          "title": "Rooftop Lights",
+          "artist": "Indigo Parade",
+          "genre": "indie pop",
+          "mood": "happy",
+          "energy": 0.76,
+          "tempo_bpm": 124,
+          "valence": 0.81,
+          "danceability": 0.82,
+          "acousticness": 0.35,
+          "feature_score": 0.1858,
+          "editorial_score": 0.616,
+          "total_score": 0.8018,
+          "editorial_note": "Indie pop at 124 BPM with jangling guitars over a danceable groove. More acoustic texture than the straight pop entries, which makes it the natural hinge between an acoustic set and a dance set.",
+          "why_matched": [
+            "matched editorial notes"
+          ]
+        }
+      ],
+      "near_misses": [],
+      "editorial_hits": [
+        {
+          "source": "context_note",
+          "key": "workout",
+          "score": 1.0,
+          "text": "Prioritise energy above 0.75 and tempo above 125 BPM. Sequence from bright-aggressive pop into rock and metal so the arc climbs rather than peaking immediately."
+        },
+        {
+          "source": "genre_note",
+          "key": "metal",
+          "score": 0.8,
+          "text": "Catalog ceiling for tempo and energy with low valence. Reserve for catharsis and heavy training; exclude by default from shared-background requests."
+        },
+        {
+          "source": "track_note",
+          "key": "Thunder Bloom - Iron Orchard",
+          "song_id": 14,
+          "score": 0.686,
+          "text": "The catalog's ceiling for both tempo (168 BPM) and energy. Low valence makes the aggression cathartic rather than celebratory, so it belongs at the top of a workout arc, not at its start."
+        },
+        {
+          "source": "track_note",
+          "key": "Gym Hero - Max Pulse",
+          "song_id": 5,
+          "score": 0.6667,
+          "text": "Peak-energy pop engineered for a gym PA: 132 BPM, near-zero acousticness, and a chorus that lands on the downbeat. High valence keeps it motivating rather than punishing, which separates it from the metal entries."
+        },
+        {
+          "source": "track_note",
+          "key": "Focus Flow - LoRoom",
+          "song_id": 9,
+          "score": 0.3381,
+          "text": "An 80 BPM lofi loop with deliberately flat dynamics and no vocal hook. It is the catalog's purpose-built concentration track; the absence of surprise is the feature, not a shortcoming."
+        },
+        {
+          "source": "track_note",
+          "key": "Paper Kites - Wild Fern",
+          "song_id": 17,
+          "score": 0.3288,
+          "text": "Acoustic folk at 101 BPM that climbs from fingerpicking into group harmony. High acousticness with high valence gives it lift without percussion, so it brightens a quiet playlist without breaking its calm."
+        },
+        {
+          "source": "track_note",
+          "key": "Sunrise City - Neon Echo",
+          "song_id": 1,
+          "score": 0.305,
+          "text": "A glossy synth-pop opener built on a bright major-key hook and an unhurried 118 BPM pulse. Works as the first track of a playlist because the intro climbs rather than drops, so it lifts a room without demanding attention."
+        },
+        {
+          "source": "track_note",
+          "key": "Velvet Weekend - The Marigold Club",
+          "song_id": 15,
+          "score": 0.1768,
+          "text": "Funk at 112 BPM with the catalog's highest danceability. The pocket is deep but the volume is restrained, which is why it works for an evening that wants groove without a dancefloor."
+        }
+      ],
+      "filters_applied": [
+        "exclude genre in ['metal']",
+        "tempo_bpm >= 120"
+      ],
+      "relaxations": [],
+      "catalog_size": 17,
+      "strict_match_count": 3
+    },
+    "attempts": [
+      {
+        "attempt": 1,
+        "prompt_kind": "initial",
+        "raw_model_output": "{\"playlist_name\": \"Workout Set\", \"summary\": \"3 track(s) spanning 124-152 BPM across indie pop, pop, rock, ranked by catalog features blended with retrieved editorial notes.\", \"tracks\": [{\"song_id\": 5, \"title\": \"Gym Hero\", \"artist\": \"Max Pulse\", \"reason\": \"Pop at 132 bpm with 0.93 energy and 0.77 valence; editorially filed under workout; reads as pumped. Editorial note: Peak-energy pop engineered for a gym PA: 132 BPM, near-zero acousticness, and a chorus that lands on the downbeat.\"}, {\"song_id\": 3, \"title\": \"Storm Runner\", \"artist\": \"Voltline\", \"reason\": \"Rock at 152 bpm with 0.91 energy and 0.48 valence; reads as driving. Editorial note: Guitar-forward rock at 152 BPM with a relentless eighth-note chug.\"}, {\"song_id\": 10, \"title\": \"Rooftop Lights\", \"artist\": \"Indigo Parade\", \"reason\": \"Indie pop at 124 bpm with 0.76 energy and 0.81 valence; reads as golden-hour. Editorial note: Indie pop at 124 BPM with jangling guitars over a danceable groove.\"}]}",
+        "parsed_playlist": {
+          "playlist_name": "Workout Set",
+          "summary": "3 track(s) spanning 124-152 BPM across indie pop, pop, rock, ranked by catalog features blended with retrieved editorial notes.",
+          "tracks": [
+            {
+              "song_id": 5,
+              "title": "Gym Hero",
+              "artist": "Max Pulse",
+              "reason": "Pop at 132 bpm with 0.93 energy and 0.77 valence; editorially filed under workout; reads as pumped. Editorial note: Peak-energy pop engineered for a gym PA: 132 BPM, near-zero acousticness, and a chorus that lands on the downbeat."
+            },
+            {
+              "song_id": 3,
+              "title": "Storm Runner",
+              "artist": "Voltline",
+              "reason": "Rock at 152 bpm with 0.91 energy and 0.48 valence; reads as driving. Editorial note: Guitar-forward rock at 152 BPM with a relentless eighth-note chug."
+            },
+            {
+              "song_id": 10,
+              "title": "Rooftop Lights",
+              "artist": "Indigo Parade",
+              "reason": "Indie pop at 124 bpm with 0.76 energy and 0.81 valence; reads as golden-hour. Editorial note: Indie pop at 124 BPM with jangling guitars over a danceable groove."
+            }
+          ]
+        },
+        "guardrail": {
+          "passed": true,
+          "violations": [],
+          "checks_run": [
+            "format",
+            "hallucination",
+            "constraint",
+            "grounding"
+          ]
+        }
+      }
+    ],
+    "retries": 0,
+    "fallback_used": false,
+    "final_output": {
+      "query": "Build me a 4-song workout playlist that climbs in intensity, but no metal, and everything has to be at least 120 BPM.",
+      "playlist_name": "Workout Set",
+      "summary": "3 track(s) spanning 124-152 BPM across indie pop, pop, rock, ranked by catalog features blended with retrieved editorial notes.",
+      "recommendations": [
+        {
+          "song_id": 5,
+          "title": "Gym Hero",
+          "artist": "Max Pulse",
+          "genre": "pop",
+          "mood": "intense",
+          "tempo_bpm": 132,
+          "energy": 0.93,
+          "reason": "Pop at 132 bpm with 0.93 energy and 0.77 valence; editorially filed under workout; reads as pumped. Editorial note: Peak-energy pop engineered for a gym PA: 132 BPM, near-zero acousticness, and a chorus that lands on the downbeat.",
+          "editorial_note": "Peak-energy pop engineered for a gym PA: 132 BPM, near-zero acousticness, and a chorus that lands on the downbeat. High valence keeps it motivating rather than punishing, which separates it from the metal entries."
+        },
+        {
+          "song_id": 3,
+          "title": "Storm Runner",
+          "artist": "Voltline",
+          "genre": "rock",
+          "mood": "intense",
+          "tempo_bpm": 152,
+          "energy": 0.91,
+          "reason": "Rock at 152 bpm with 0.91 energy and 0.48 valence; reads as driving. Editorial note: Guitar-forward rock at 152 BPM with a relentless eighth-note chug.",
+          "editorial_note": "Guitar-forward rock at 152 BPM with a relentless eighth-note chug. The chorus holds tension rather than releasing it, making it a better pace-setter than a victory lap."
+        },
+        {
+          "song_id": 10,
+          "title": "Rooftop Lights",
+          "artist": "Indigo Parade",
+          "genre": "indie pop",
+          "mood": "happy",
+          "tempo_bpm": 124,
+          "energy": 0.76,
+          "reason": "Indie pop at 124 bpm with 0.76 energy and 0.81 valence; reads as golden-hour. Editorial note: Indie pop at 124 BPM with jangling guitars over a danceable groove.",
+          "editorial_note": "Indie pop at 124 BPM with jangling guitars over a danceable groove. More acoustic texture than the straight pop entries, which makes it the natural hinge between an acoustic set and a dance set."
+        }
+      ],
+      "plan": {
+        "moods": [],
+        "genres": [],
+        "listening_contexts": [
+          "workout"
+        ],
+        "exclude_genres": [
+          "metal"
+        ],
+        "exclude_artists": [],
+        "exclude_moods": [],
+        "min_bpm": 120,
+        "acoustic_preference": "any",
+        "track_count": 5,
+        "rationale": "Parsed request as context: workout; tempo: 120..- BPM; exclusions: metal",
+        "unsupported_requests": []
+      },
+      "guardrail": {
+        "passed": true,
+        "violations": [],
+        "checks_run": [
+          "format",
+          "hallucination",
+          "constraint",
+          "grounding"
+        ]
+      },
+      "retries": 0,
+      "fallback_used": false,
+      "provider": "offline",
+      "notices": [
+        "Only 3 catalog track(s) satisfy every constraint, fewer than the 5 requested."
+      ],
+      "trace_id": "trace-11eac7020aea"
+    },
+    "duration_ms": 27,
+    "notices": [
+      "Only 3 catalog track(s) satisfy every constraint, fewer than the 5 requested."
+    ]
+  },
+  {
+    "trace_id": "trace-1bde9d802ed8",
+    "timestamp": "2026-11-13T22:20:42+00:00",
+    "query": "It is raining and I am feeling nostalgic. Give me 3 acoustic songs that are wistful without being depressing.",
+    "provider": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "plan": {
+      "moods": [
+        "nostalgic"
+      ],
+      "genres": [],
+      "listening_contexts": [
+        "nostalgia"
+      ],
+      "exclude_genres": [],
+      "exclude_artists": [],
+      "exclude_moods": [],
+      "acoustic_preference": "prefer",
+      "track_count": 5,
+      "rationale": "The listener requested three acoustic, nostalgic tracks for a rainy day.",
+      "unsupported_requests": [
+        "The term 'wistful' is not in our mood catalog, so it was omitted.",
+        "The term 'depressing' is not in our mood catalog, so it was omitted."
+      ]
+    },
+    "retrieval": {
+      "candidates": [
+        {
+          "song_id": 11,
+          "title": "Desert Postcard",
+          "artist": "Juniper Trail",
+          "genre": "country",
+          "mood": "nostalgic",
+          "energy": 0.54,
+          "tempo_bpm": 96,
+          "valence": 0.68,
+          "danceability": 0.63,
+          "acousticness": 0.52,
+          "feature_score": 6.95,
+          "editorial_score": 2.5,
+          "total_score": 9.45,
+          "editorial_note": "Country storytelling at 96 BPM with mid acousticness and a lyric built on distance and memory. The catalog's clearest expression of nostalgia without tipping into sadness.",
+          "why_matched": [
+            "requested mood (nostalgic)",
+            "editorially preferred for nostalgia",
+            "tempo 96 BPM fits nostalgia",
+            "matched editorial notes"
+          ]
+        },
+        {
+          "song_id": 17,
+          "title": "Paper Kites",
+          "artist": "Wild Fern",
+          "genre": "folk",
+          "mood": "hopeful",
+          "energy": 0.61,
+          "tempo_bpm": 101,
+          "valence": 0.82,
+          "danceability": 0.57,
+          "acousticness": 0.73,
+          "feature_score": 4.3,
+          "editorial_score": 0.9586,
+          "total_score": 5.2586,
+          "editorial_note": "Acoustic folk at 101 BPM that climbs from fingerpicking into group harmony. High acousticness with high valence gives it lift without percussion, so it brightens a quiet playlist without breaking its calm.",
+          "why_matched": [
+            "acoustic texture (0.73)",
+            "editorially preferred for nostalgia",
+            "tempo 101 BPM fits nostalgia",
+            "matched editorial notes"
+          ]
+        },
+        {
+          "song_id": 16,
+          "title": "Blue Hour Train",
+          "artist": "Harborlight",
+          "genre": "blues",
+          "mood": "melancholic",
+          "energy": 0.46,
+          "tempo_bpm": 84,
+          "valence": 0.29,
+          "danceability": 0.49,
+          "acousticness": 0.67,
+          "feature_score": 4.0775,
+          "editorial_score": 0.0,
+          "total_score": 4.0775,
+          "editorial_note": "Blues at 84 BPM with the lowest valence in the catalog. High acousticness and restrained energy make it the honest pick for sadness, rather than a sad-sounding song that is secretly upbeat.",
+          "why_matched": [
+            "acoustic texture (0.67)",
+            "editorially preferred for nostalgia",
+            "tempo 84 BPM fits nostalgia"
+          ]
+        },
+        {
+          "song_id": 7,
+          "title": "Coffee Shop Stories",
+          "artist": "Slow Stereo",
+          "genre": "jazz",
+          "mood": "relaxed",
+          "energy": 0.37,
+          "tempo_bpm": 90,
+          "valence": 0.71,
+          "danceability": 0.54,
+          "acousticness": 0.89,
+          "feature_score": 2.5125,
+          "editorial_score": 0.0,
+          "total_score": 2.5125,
+          "editorial_note": "Brushed-kit jazz at 90 BPM with high acousticness and relaxed phrasing. Designed to sit under conversation: the melody is present enough to be noticed when you listen and quiet enough to ignore when you do not.",
+          "why_matched": [
+            "acoustic texture (0.89)",
+            "tempo 90 BPM fits nostalgia"
+          ]
+        },
+        {
+          "song_id": 9,
+          "title": "Focus Flow",
+          "artist": "LoRoom",
+          "genre": "lofi",
+          "mood": "focused",
+          "energy": 0.4,
+          "tempo_bpm": 80,
+          "valence": 0.59,
+          "danceability": 0.6,
+          "acousticness": 0.78,
+          "feature_score": 2.3175,
+          "editorial_score": 0.0,
+          "total_score": 2.3175,
+          "editorial_note": "An 80 BPM lofi loop with deliberately flat dynamics and no vocal hook. It is the catalog's purpose-built concentration track; the absence of surprise is the feature, not a shortcoming.",
+          "why_matched": [
+            "acoustic texture (0.78)",
+            "tempo 80 BPM fits nostalgia"
+          ]
+        },
+        {
+          "song_id": 4,
+          "title": "Library Rain",
+          "artist": "Paper Lanterns",
+          "genre": "lofi",
+          "mood": "chill",
+          "energy": 0.35,
+          "tempo_bpm": 72,
+          "valence": 0.6,
+          "danceability": 0.58,
+          "acousticness": 0.86,
+          "feature_score": 1.3067,
+          "editorial_score": 0.9856,
+          "total_score": 2.2923,
+          "editorial_note": "Heavily acoustic lofi at 72 BPM, with tape hiss standing in for rain. The most textural track in the catalog and the safest pick when a listener asks for calm without asking for silence.",
+          "why_matched": [
+            "acoustic texture (0.86)",
+            "matched editorial notes"
+          ]
+        },
+        {
+          "song_id": 12,
+          "title": "Island Rhythm",
+          "artist": "Coral Avenue",
+          "genre": "reggae",
+          "mood": "playful",
+          "energy": 0.72,
+          "tempo_bpm": 104,
+          "valence": 0.88,
+          "danceability": 0.81,
+          "acousticness": 0.24,
+          "feature_score": 1.58,
+          "editorial_score": 0.4859,
+          "total_score": 2.0659,
+          "editorial_note": "Reggae at 104 BPM with the highest valence in the catalog. The off-beat skank keeps energy moderate while the mood stays bright, so it raises a room without raising its pulse.",
+          "why_matched": [
+            "tempo 104 BPM fits nostalgia"
+          ]
+        },
+        {
+          "song_id": 8,
+          "title": "Night Drive Loop",
+          "artist": "Neon Echo",
+          "genre": "synthwave",
+          "mood": "moody",
+          "energy": 0.75,
+          "tempo_bpm": 110,
+          "valence": 0.49,
+          "danceability": 0.73,
+          "acousticness": 0.22,
+          "feature_score": 1.4525,
+          "editorial_score": 0.0,
+          "total_score": 1.4525,
+          "editorial_note": "Synthwave at 110 BPM with mid-low valence: the arpeggio glitters while the bassline stays overcast. The catalog's definitive late-night-driving track and the bridge between its upbeat pop and its heavier rock entries.",
+          "why_matched": [
+            "tempo 110 BPM fits nostalgia"
+          ]
+        },
+        {
+          "song_id": 13,
+          "title": "Glass Cathedral",
+          "artist": "Silver Meridian",
+          "genre": "classical",
+          "mood": "serene",
+          "energy": 0.22,
+          "tempo_bpm": 66,
+          "valence": 0.73,
+          "danceability": 0.31,
+          "acousticness": 0.94,
+          "feature_score": 1.3592,
+          "editorial_score": 0.0,
+          "total_score": 1.3592,
+          "editorial_note": "Neo-classical strings and piano at 66 BPM with the catalog's highest acousticness. Low energy and mid valence give it poise rather than sadness, which makes it usable for both calm focus and consolation.",
+          "why_matched": [
+            "acoustic texture (0.94)"
+          ]
+        },
+        {
+          "song_id": 6,
+          "title": "Spacewalk Thoughts",
+          "artist": "Orbit Bloom",
+          "genre": "ambient",
+          "mood": "chill",
+          "energy": 0.28,
+          "tempo_bpm": 60,
+          "valence": 0.65,
+          "danceability": 0.41,
+          "acousticness": 0.92,
+          "feature_score": 1.2092,
+          "editorial_score": 0.0,
+          "total_score": 1.2092,
+          "editorial_note": "Beatless ambient at a nominal 60 BPM. Near-total acousticness and very low energy make it the catalog floor for stimulation, which is precisely its use: it is the track you reach for when any rhythm would be too much.",
+          "why_matched": [
+            "acoustic texture (0.92)"
+          ]
+        }
+      ],
+      "near_misses": [],
+      "editorial_hits": [
+        {
+          "source": "context_note",
+          "key": "nostalgia",
+          "score": 1.0,
+          "text": "Narrative lyrics and mid tempo with warm acoustic texture. Country and folk retrieve first, with blues as the darker variant."
+        },
+        {
+          "source": "track_note",
+          "key": "Desert Postcard - Juniper Trail",
+          "song_id": 11,
+          "score": 0.8575,
+          "text": "Country storytelling at 96 BPM with mid acousticness and a lyric built on distance and memory. The catalog's clearest expression of nostalgia without tipping into sadness."
+        },
+        {
+          "source": "track_note",
+          "key": "Library Rain - Paper Lanterns",
+          "song_id": 4,
+          "score": 0.3381,
+          "text": "Heavily acoustic lofi at 72 BPM, with tape hiss standing in for rain. The most textural track in the catalog and the safest pick when a listener asks for calm without asking for silence."
+        },
+        {
+          "source": "track_note",
+          "key": "Paper Kites - Wild Fern",
+          "song_id": 17,
+          "score": 0.3288,
+          "text": "Acoustic folk at 101 BPM that climbs from fingerpicking into group harmony. High acousticness with high valence gives it lift without percussion, so it brightens a quiet playlist without breaking its calm."
+        },
+        {
+          "source": "track_note",
+          "key": "Velvet Weekend - The Marigold Club",
+          "song_id": 15,
+          "score": 0.1768,
+          "text": "Funk at 112 BPM with the catalog's highest danceability. The pocket is deep but the volume is restrained, which is why it works for an evening that wants groove without a dancefloor."
+        },
+        {
+          "source": "track_note",
+          "key": "Rooftop Lights - Indigo Parade",
+          "song_id": 10,
+          "score": 0.169,
+          "text": "Indie pop at 124 BPM with jangling guitars over a danceable groove. More acoustic texture than the straight pop entries, which makes it the natural hinge between an acoustic set and a dance set."
+        },
+        {
+          "source": "track_note",
+          "key": "Island Rhythm - Coral Avenue",
+          "song_id": 12,
+          "score": 0.1667,
+          "text": "Reggae at 104 BPM with the highest valence in the catalog. The off-beat skank keeps energy moderate while the mood stays bright, so it raises a room without raising its pulse."
+        },
+        {
+          "source": "track_note",
+          "key": "Sunrise City - Neon Echo",
+          "song_id": 1,
+          "score": 0.1525,
+          "text": "A glossy synth-pop opener built on a bright major-key hook and an unhurried 118 BPM pulse. Works as the first track of a playlist because the intro climbs rather than drops, so it lifts a room without demanding attention."
+        }
+      ],
+      "filters_applied": [
+        "none (no hard constraints in plan)"
+      ],
+      "relaxations": [],
+      "catalog_size": 17,
+      "strict_match_count": 17
+    },
+    "attempts": [
+      {
+        "attempt": 1,
+        "prompt_kind": "initial",
+        "raw_model_output": "{\n  \"playlist_name\": \"Rainy Day Reflection\",\n  \"summary\": \"This selection moves from the textural calm of a rainy atmosphere into warm, narrative folk and country. The arc maintains a consistent acoustic warmth while shifting from ambient textures to storytelling.\",\n  \"tracks\": [\n    {\n      \"song_id\": 4,\n      \"title\": \"Library Rain\",\n      \"artist\": \"Paper Lanterns\",\n      \"reason\": \"At 72 BPM with high acousticness, the tape hiss provides a textural match for a rainy day without requiring active attention.\"\n    },\n    {\n      \"song_id\": 11,\n      \"title\": \"Desert Postcard\",\n      \"artist\": \"Juniper Trail\",\n      \"reason\": \"This track offers clear country storytelling at 96 BPM, grounding the set in the specific theme of memory and distance.\"\n    },\n    {\n      \"song_id\": 17,\n      \"title\": \"Paper Kites\",\n      \"artist\": \"Wild Fern\",\n      \"reason\": \"With 0.82 valence and high acousticness, this folk track provides a lift in mood that prevents the playlist from becoming melancholic.\"\n    },\n    {\n      \"song_id\": 13,\n      \"title\": \"Glass Cathedral\",\n      \"artist\": \"Silver Meridian\",\n      \"reason\": \"The 0.94 acousticness and 66 BPM tempo offer a serene, poise-filled conclusion that remains hopeful rather than sad.\"\n    },\n    {\n      \"song_id\": 6,\n      \"title\": \"Spacewalk Thoughts\",\n      \"artist\": \"Orbit Bloom\",\n      \"reason\": \"At 60 BPM with near-total acousticness, this beatless ambient track serves as the final, quiet floor for a reflective session.\"\n    }\n  ]\n}",
+        "parsed_playlist": {
+          "playlist_name": "Rainy Day Reflection",
+          "summary": "This selection moves from the textural calm of a rainy atmosphere into warm, narrative folk and country. The arc maintains a consistent acoustic warmth while shifting from ambient textures to storytelling.",
+          "tracks": [
+            {
+              "song_id": 4,
+              "title": "Library Rain",
+              "artist": "Paper Lanterns",
+              "reason": "At 72 BPM with high acousticness, the tape hiss provides a textural match for a rainy day without requiring active attention."
+            },
+            {
+              "song_id": 11,
+              "title": "Desert Postcard",
+              "artist": "Juniper Trail",
+              "reason": "This track offers clear country storytelling at 96 BPM, grounding the set in the specific theme of memory and distance."
+            },
+            {
+              "song_id": 17,
+              "title": "Paper Kites",
+              "artist": "Wild Fern",
+              "reason": "With 0.82 valence and high acousticness, this folk track provides a lift in mood that prevents the playlist from becoming melancholic."
+            },
+            {
+              "song_id": 13,
+              "title": "Glass Cathedral",
+              "artist": "Silver Meridian",
+              "reason": "The 0.94 acousticness and 66 BPM tempo offer a serene, poise-filled conclusion that remains hopeful rather than sad."
+            },
+            {
+              "song_id": 6,
+              "title": "Spacewalk Thoughts",
+              "artist": "Orbit Bloom",
+              "reason": "At 60 BPM with near-total acousticness, this beatless ambient track serves as the final, quiet floor for a reflective session."
+            }
+          ]
+        },
+        "guardrail": {
+          "passed": true,
+          "violations": [],
+          "checks_run": [
+            "format",
+            "hallucination",
+            "constraint",
+            "grounding"
+          ]
+        }
+      }
+    ],
+    "retries": 0,
+    "fallback_used": false,
+    "final_output": {
+      "query": "It is raining and I am feeling nostalgic. Give me 3 acoustic songs that are wistful without being depressing.",
+      "playlist_name": "Rainy Day Reflection",
+      "summary": "This selection moves from the textural calm of a rainy atmosphere into warm, narrative folk and country. The arc maintains a consistent acoustic warmth while shifting from ambient textures to storytelling.",
+      "recommendations": [
+        {
+          "song_id": 4,
+          "title": "Library Rain",
+          "artist": "Paper Lanterns",
+          "genre": "lofi",
+          "mood": "chill",
+          "tempo_bpm": 72,
+          "energy": 0.35,
+          "reason": "At 72 BPM with high acousticness, the tape hiss provides a textural match for a rainy day without requiring active attention.",
+          "editorial_note": "Heavily acoustic lofi at 72 BPM, with tape hiss standing in for rain. The most textural track in the catalog and the safest pick when a listener asks for calm without asking for silence."
+        },
+        {
+          "song_id": 11,
+          "title": "Desert Postcard",
+          "artist": "Juniper Trail",
+          "genre": "country",
+          "mood": "nostalgic",
+          "tempo_bpm": 96,
+          "energy": 0.54,
+          "reason": "This track offers clear country storytelling at 96 BPM, grounding the set in the specific theme of memory and distance.",
+          "editorial_note": "Country storytelling at 96 BPM with mid acousticness and a lyric built on distance and memory. The catalog's clearest expression of nostalgia without tipping into sadness."
+        },
+        {
+          "song_id": 17,
+          "title": "Paper Kites",
+          "artist": "Wild Fern",
+          "genre": "folk",
+          "mood": "hopeful",
+          "tempo_bpm": 101,
+          "energy": 0.61,
+          "reason": "With 0.82 valence and high acousticness, this folk track provides a lift in mood that prevents the playlist from becoming melancholic.",
+          "editorial_note": "Acoustic folk at 101 BPM that climbs from fingerpicking into group harmony. High acousticness with high valence gives it lift without percussion, so it brightens a quiet playlist without breaking its calm."
+        },
+        {
+          "song_id": 13,
+          "title": "Glass Cathedral",
+          "artist": "Silver Meridian",
+          "genre": "classical",
+          "mood": "serene",
+          "tempo_bpm": 66,
+          "energy": 0.22,
+          "reason": "The 0.94 acousticness and 66 BPM tempo offer a serene, poise-filled conclusion that remains hopeful rather than sad.",
+          "editorial_note": "Neo-classical strings and piano at 66 BPM with the catalog's highest acousticness. Low energy and mid valence give it poise rather than sadness, which makes it usable for both calm focus and consolation."
+        },
+        {
+          "song_id": 6,
+          "title": "Spacewalk Thoughts",
+          "artist": "Orbit Bloom",
+          "genre": "ambient",
+          "mood": "chill",
+          "tempo_bpm": 60,
+          "energy": 0.28,
+          "reason": "At 60 BPM with near-total acousticness, this beatless ambient track serves as the final, quiet floor for a reflective session.",
+          "editorial_note": "Beatless ambient at a nominal 60 BPM. Near-total acousticness and very low energy make it the catalog floor for stimulation, which is precisely its use: it is the track you reach for when any rhythm would be too much."
+        }
+      ],
+      "plan": {
+        "moods": [
+          "nostalgic"
+        ],
+        "genres": [],
+        "listening_contexts": [
+          "nostalgia"
+        ],
+        "exclude_genres": [],
+        "exclude_artists": [],
+        "exclude_moods": [],
+        "acoustic_preference": "prefer",
+        "track_count": 5,
+        "rationale": "The listener requested three acoustic, nostalgic tracks for a rainy day.",
+        "unsupported_requests": [
+          "The term 'wistful' is not in our mood catalog, so it was omitted.",
+          "The term 'depressing' is not in our mood catalog, so it was omitted."
+        ]
+      },
+      "guardrail": {
+        "passed": true,
+        "violations": [],
+        "checks_run": [
+          "format",
+          "hallucination",
+          "constraint",
+          "grounding"
+        ]
+      },
+      "retries": 0,
+      "fallback_used": false,
+      "provider": "gemini",
+      "notices": [
+        "The term 'wistful' is not in our mood catalog, so it was omitted.",
+        "The term 'depressing' is not in our mood catalog, so it was omitted."
+      ],
+      "trace_id": "trace-1bde9d802ed8"
+    },
+    "duration_ms": 3461,
+    "notices": [
+      "The term 'wistful' is not in our mood catalog, so it was omitted.",
+      "The term 'depressing' is not in our mood catalog, so it was omitted."
+    ]
   }
 ]

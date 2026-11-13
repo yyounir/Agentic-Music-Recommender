@@ -293,17 +293,52 @@ def run_streamlit() -> None:  # pragma: no cover - exercised by `streamlit run`
         "checked against data/songs.csv before you see it."
     )
 
+    import os
+
+    from src.llm_client import MODEL_FALLBACKS, load_dotenv
+
+    load_dotenv()
+    has_key = bool(
+        os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
+    )
+
     with st.sidebar:
         st.header("Settings")
+
+        engine_options = ["offline", "gemini"] if has_key else ["offline"]
         prefer = st.radio(
             "Generation engine",
-            options=["auto", "gemini", "offline"],
+            options=engine_options,
             index=0,
             help=(
-                "`auto` uses Gemini when GEMINI_API_KEY is set and the "
-                "deterministic offline engine otherwise."
+                "**offline** is instant and deterministic - the whole agent, all "
+                "four guardrails and the self-correction loop run on it.\n\n"
+                "**gemini** calls the real API: better written rationales, but "
+                "15-60 s per request and subject to free-tier quota."
             ),
         )
+        if not has_key:
+            st.caption(
+                "No `GEMINI_API_KEY` found. Add one to a `.env` file in the "
+                "project root to enable the Gemini engine."
+            )
+
+        model_choice = None
+        if prefer == "gemini":
+            model_choice = st.selectbox(
+                "Gemini model",
+                options=MODEL_FALLBACKS,
+                index=len(MODEL_FALLBACKS) - 1,
+                help=(
+                    "Free-tier quotas are per-model and per-day. "
+                    "`gemini-3.1-flash-lite` is the fastest and usually has "
+                    "budget left; the larger models write better rationales. "
+                    "If a model is exhausted the engine automatically tries the "
+                    "others and tells you which one answered."
+                ),
+            )
+            st.caption("⏱️ Gemini requests take roughly 15-60 seconds.")
+
         track_count = st.slider("Tracks to return", 1, 10, 5)
         max_retries = st.slider("Max self-correction retries", 0, 3, 3)
         inject_fault = st.checkbox(
@@ -313,21 +348,33 @@ def run_streamlit() -> None:  # pragma: no cover - exercised by `streamlit run`
             "verifier catch it and the agent self-correct.",
         )
         st.divider()
-        with st.expander("Catalog"):
-            st.dataframe(get_catalog().drop(columns=["genre_key", "mood_key", "artist_key"]))
+        with st.expander("Catalog (17 tracks)"):
+            st.dataframe(
+                get_catalog().drop(columns=["genre_key", "mood_key", "artist_key"]),
+                width="stretch",
+            )
 
     @st.cache_resource(show_spinner=False)
-    def _build_agent(prefer_key: str, retries: int, fault: bool):
-        from src.llm_client import FaultInjectingEngine, build_engine
+    def _build_agent(prefer_key: str, retries: int, fault: bool, model: str | None):
+        from src.llm_client import FaultInjectingEngine, GeminiEngine, build_engine
 
-        engine, notices = build_engine(prefer=prefer_key)
+        if prefer_key == "gemini" and model:
+            try:
+                engine, notices = GeminiEngine(model=model), []
+            except Exception as exc:  # noqa: BLE001 - fall back rather than crash
+                engine, notices = build_engine(prefer="offline")[0], [
+                    f"Could not start the Gemini engine ({exc}); using the "
+                    "deterministic offline engine."
+                ]
+        else:
+            engine, notices = build_engine(prefer=prefer_key)
         if fault:
             engine = FaultInjectingEngine(inner=engine, faults=1, mode="hallucination")
         agent = MusicCuratorAgent(engine=engine, max_retries=retries)
         agent.startup_notices = notices
         return agent
 
-    agent = _build_agent(prefer, max_retries, inject_fault)
+    agent = _build_agent(prefer, max_retries, inject_fault, model_choice)
     st.info(f"Engine in use: **{agent.engine.provider}** (`{agent.engine.model}`)")
 
     examples = {"— pick an example —": ""}
@@ -340,7 +387,7 @@ def run_streamlit() -> None:  # pragma: no cover - exercised by `streamlit run`
         height=90,
     )
 
-    if st.button("Recommend", type="primary", use_container_width=True):
+    if st.button("Recommend", type="primary", width="stretch"):
         if not query.strip():
             st.warning("Enter a listening request first.")
             st.stop()

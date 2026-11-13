@@ -580,6 +580,42 @@ def test_constraints_survive_a_totally_dead_engine(tmp_path, catalog, knowledge)
     assert result.recommendations == []
 
 
+def test_engine_outage_skips_retries_and_falls_back_immediately(
+    tmp_path, catalog, knowledge
+):
+    """Re-prompting a dead API cannot help, and makes the user wait for nothing."""
+    calls = {"n": 0}
+
+    class OutageEngine:
+        provider = "outage"
+        model = "outage"
+
+        def __init__(self, inner):
+            self.inner = inner
+
+        def plan(self, query, vocabulary):
+            return self.inner.plan(query, vocabulary)
+
+        def curate(self, request):
+            calls["n"] += 1
+            raise RuntimeError("429 RESOURCE_EXHAUSTED")
+
+    agent = MusicCuratorAgent(
+        engine=OutageEngine(OfflineHeuristicEngine(knowledge)),
+        catalog=catalog,
+        knowledge=knowledge,
+        max_retries=3,
+        trace_path=tmp_path / "traces.json",
+    )
+    result, trace = agent.recommend("Three chill songs for a rainy afternoon.")
+
+    assert calls["n"] == 1, "a transport outage must not consume the retry budget"
+    assert len(trace.attempts) == 1
+    assert result.fallback_used is True
+    assert result.recommendations  # the user still gets a verified answer
+    assert any("could not be reached" in n for n in result.notices)
+
+
 def test_agent_survives_an_engine_that_raises(tmp_path, catalog, knowledge):
     class BrokenEngine:
         provider = "broken"
