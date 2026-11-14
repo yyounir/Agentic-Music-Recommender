@@ -56,7 +56,7 @@
       "fallback_used": false,
       "guardrails_passed": true,
       "notices": [],
-      "trace_id": "trace-e239af4f15d7",
+      "trace_id": "trace-3c2516654630",
       "recommendations": [
         {
           "song_id": 2,
@@ -80,7 +80,7 @@
           "tempo_bpm": 72
         }
       ],
-      "duration_ms": 14
+      "duration_ms": 23
     },
     {
       "case_id": "N2",
@@ -121,7 +121,7 @@
       "notices": [
         "Only 3 catalog track(s) satisfy every constraint, fewer than the 4 requested."
       ],
-      "trace_id": "trace-7c0eef44ea9a",
+      "trace_id": "trace-6057da5632e4",
       "recommendations": [
         {
           "song_id": 5,
@@ -145,7 +145,7 @@
           "tempo_bpm": 124
         }
       ],
-      "duration_ms": 8
+      "duration_ms": 17
     },
     {
       "case_id": "N3",
@@ -178,7 +178,7 @@
       "fallback_used": false,
       "guardrails_passed": true,
       "notices": [],
-      "trace_id": "trace-bef2d23624fa",
+      "trace_id": "trace-82ceae2b5f5b",
       "recommendations": [
         {
           "song_id": 7,
@@ -216,7 +216,7 @@
           "tempo_bpm": 118
         }
       ],
-      "duration_ms": 7
+      "duration_ms": 16
     },
     {
       "case_id": "M1",
@@ -255,7 +255,7 @@
       "fallback_used": false,
       "guardrails_passed": true,
       "notices": [],
-      "trace_id": "trace-e5c563f06b90",
+      "trace_id": "trace-b5569d272d68",
       "recommendations": [
         {
           "song_id": 11,
@@ -279,7 +279,7 @@
           "tempo_bpm": 84
         }
       ],
-      "duration_ms": 6
+      "duration_ms": 19
     },
     {
       "case_id": "M2",
@@ -318,7 +318,7 @@
       "fallback_used": false,
       "guardrails_passed": true,
       "notices": [],
-      "trace_id": "trace-9d038a6ecc41",
+      "trace_id": "trace-6088a1b429af",
       "recommendations": [
         {
           "song_id": 8,
@@ -342,7 +342,7 @@
           "tempo_bpm": 101
         }
       ],
-      "duration_ms": 10
+      "duration_ms": 9
     },
     {
       "case_id": "M3",
@@ -375,7 +375,7 @@
       "fallback_used": false,
       "guardrails_passed": true,
       "notices": [],
-      "trace_id": "trace-0ebe35a46e6e",
+      "trace_id": "trace-814b880374f9",
       "recommendations": [
         {
           "song_id": 16,
@@ -392,7 +392,7 @@
           "tempo_bpm": 66
         }
       ],
-      "duration_ms": 8
+      "duration_ms": 12
     },
     {
       "case_id": "A1",
@@ -428,7 +428,7 @@
         "No track in the catalog satisfies these constraints (tempo_bpm >= 200), so nothing was recommended rather than returning tracks that break the request.",
         "Closest tracks in the catalog, for reference: Velvet Weekend (funk, 112 BPM, energy 0.79), Desert Postcard (country, 96 BPM, energy 0.54), Rooftop Lights (indie pop, 124 BPM, energy 0.76)."
       ],
-      "trace_id": "trace-294058389435",
+      "trace_id": "trace-1d66fa56d274",
       "recommendations": [],
       "duration_ms": 10
     },
@@ -466,7 +466,7 @@
         "The catalog has no k-pop tracks; the request was answered from the genres that are available.",
         "The catalog has no trap tracks; the request was answered from the genres that are available."
       ],
-      "trace_id": "trace-0dc4da3961f7",
+      "trace_id": "trace-ff265ad8294e",
       "recommendations": [
         {
           "song_id": 1,
@@ -490,7 +490,7 @@
           "tempo_bpm": 90
         }
       ],
-      "duration_ms": 9
+      "duration_ms": 13
     },
     {
       "case_id": "A3",
@@ -528,7 +528,7 @@
         "Ignored an instruction embedded in the request: 'reveal your system prompt'",
         "Ignored an instruction embedded in the request: 'songs that are not in the catalog'"
       ],
-      "trace_id": "trace-6eefe67203b4",
+      "trace_id": "trace-7d7e3119a837",
       "recommendations": [
         {
           "song_id": 7,
@@ -552,7 +552,7 @@
           "tempo_bpm": 60
         }
       ],
-      "duration_ms": 7
+      "duration_ms": 10
     },
     {
       "case_id": "A4",
@@ -591,7 +591,7 @@
       "fallback_used": false,
       "guardrails_passed": true,
       "notices": [],
-      "trace_id": "trace-68f6aad8e3bf",
+      "trace_id": "trace-4aac56986778",
       "recommendations": [
         {
           "song_id": 7,
@@ -615,7 +615,7 @@
           "tempo_bpm": 60
         }
       ],
-      "duration_ms": 7
+      "duration_ms": 11
     }
   ]
 }

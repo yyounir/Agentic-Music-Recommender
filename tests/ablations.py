@@ -297,6 +297,9 @@ def _first_attempt_metrics(agent: MusicCuratorAgent, queries: List[str]) -> Dict
     fabricated = 0
     reason_lengths: List[int] = []
     numeric_reasons = 0
+    # Capture real rationales so the model card can quote actual output rather
+    # than a paraphrase of what the output is like.
+    samples: List[Dict[str, Any]] = []
 
     for query in queries:
         result, trace = agent.recommend(query, log=False)
@@ -306,13 +309,24 @@ def _first_attempt_metrics(agent: MusicCuratorAgent, queries: List[str]) -> Dict
         report = attempt.guardrail
         if attempt.parsed_playlist is not None:
             parsed_ok += 1
-            for track in attempt.parsed_playlist.tracks:
+            for index, track in enumerate(attempt.parsed_playlist.tracks):
                 total_tracks += 1
                 if track.song_id not in catalog_ids:
                     fabricated += 1
                 reason_lengths.append(len(track.reason))
                 if re.search(r"\d", track.reason):
                     numeric_reasons += 1
+                if index == 0:
+                    samples.append(
+                        {
+                            "query": query,
+                            "playlist_name": attempt.parsed_playlist.playlist_name,
+                            "song_id": track.song_id,
+                            "title": track.title,
+                            "artist": track.artist,
+                            "reason": track.reason,
+                        }
+                    )
         if report is not None:
             if not any(v.check == "format" for v in report.violations):
                 format_ok += 1
@@ -337,6 +351,7 @@ def _first_attempt_metrics(agent: MusicCuratorAgent, queries: List[str]) -> Dict
         "rationales_citing_a_number": (
             numeric_reasons / total_tracks if total_tracks else 0.0
         ),
+        "sample_rationales": samples,
     }
 
 

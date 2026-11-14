@@ -56,7 +56,7 @@
       "fallback_used": false,
       "guardrails_passed": true,
       "notices": [],
-      "trace_id": "trace-9a84ddd47946",
+      "trace_id": "trace-32da0321a735",
       "recommendations": [
         {
           "song_id": 2,
@@ -80,7 +80,7 @@
           "tempo_bpm": 72
         }
       ],
-      "duration_ms": 16
+      "duration_ms": 17
     },
     {
       "case_id": "N2",
@@ -121,7 +121,7 @@
       "notices": [
         "Only 3 catalog track(s) satisfy every constraint, fewer than the 4 requested."
       ],
-      "trace_id": "trace-a391f6295a1e",
+      "trace_id": "trace-2dd488538b63",
       "recommendations": [
         {
           "song_id": 5,
@@ -145,7 +145,7 @@
           "tempo_bpm": 124
         }
       ],
-      "duration_ms": 10
+      "duration_ms": 9
     },
     {
       "case_id": "N3",
@@ -178,7 +178,7 @@
       "fallback_used": false,
       "guardrails_passed": true,
       "notices": [],
-      "trace_id": "trace-ac62152e6df2",
+      "trace_id": "trace-5c3719238f1f",
       "recommendations": [
         {
           "song_id": 7,
@@ -216,7 +216,7 @@
           "tempo_bpm": 118
         }
       ],
-      "duration_ms": 8
+      "duration_ms": 14
     },
     {
       "case_id": "M1",
@@ -255,7 +255,7 @@
       "fallback_used": false,
       "guardrails_passed": true,
       "notices": [],
-      "trace_id": "trace-572cf74c5f02",
+      "trace_id": "trace-9787358442a3",
       "recommendations": [
         {
           "song_id": 11,
@@ -279,7 +279,7 @@
           "tempo_bpm": 84
         }
       ],
-      "duration_ms": 7
+      "duration_ms": 9
     },
     {
       "case_id": "M2",
@@ -318,7 +318,7 @@
       "fallback_used": false,
       "guardrails_passed": true,
       "notices": [],
-      "trace_id": "trace-94cbcdbb5234",
+      "trace_id": "trace-49bb41cb0bd9",
       "recommendations": [
         {
           "song_id": 8,
@@ -342,7 +342,7 @@
           "tempo_bpm": 101
         }
       ],
-      "duration_ms": 8
+      "duration_ms": 9
     },
     {
       "case_id": "M3",
@@ -375,7 +375,7 @@
       "fallback_used": false,
       "guardrails_passed": true,
       "notices": [],
-      "trace_id": "trace-8515c7d8adeb",
+      "trace_id": "trace-46dc9126853a",
       "recommendations": [
         {
           "song_id": 16,
@@ -428,9 +428,9 @@
         "No track in the catalog satisfies these constraints (tempo_bpm >= 200), so nothing was recommended rather than returning tracks that break the request.",
         "Closest tracks in the catalog, for reference: Velvet Weekend (funk, 112 BPM, energy 0.79), Desert Postcard (country, 96 BPM, energy 0.54), Rooftop Lights (indie pop, 124 BPM, energy 0.76)."
       ],
-      "trace_id": "trace-aae9f5c57403",
+      "trace_id": "trace-eaf731dc37ee",
       "recommendations": [],
-      "duration_ms": 6
+      "duration_ms": 7
     },
     {
       "case_id": "A2",
@@ -466,7 +466,7 @@
         "The catalog has no k-pop tracks; the request was answered from the genres that are available.",
         "The catalog has no trap tracks; the request was answered from the genres that are available."
       ],
-      "trace_id": "trace-471d8ff52089",
+      "trace_id": "trace-152c0f911142",
       "recommendations": [
         {
           "song_id": 1,
@@ -528,7 +528,7 @@
         "Ignored an instruction embedded in the request: 'reveal your system prompt'",
         "Ignored an instruction embedded in the request: 'songs that are not in the catalog'"
       ],
-      "trace_id": "trace-896a584cd939",
+      "trace_id": "trace-3920ecf56e87",
       "recommendations": [
         {
           "song_id": 7,
@@ -591,7 +591,7 @@
       "fallback_used": false,
       "guardrails_passed": true,
       "notices": [],
-      "trace_id": "trace-99ac7aeb7734",
+      "trace_id": "trace-9180f5f05d1e",
       "recommendations": [
         {
           "song_id": 7,
@@ -615,7 +615,7 @@
           "tempo_bpm": 60
         }
       ],
-      "duration_ms": 10
+      "duration_ms": 9
     }
   ]
 }

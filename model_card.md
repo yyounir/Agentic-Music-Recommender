@@ -197,7 +197,7 @@ GEMINI_MODEL=gemini-3.1-flash-lite python tests/ablations.py --prompt --engine g
 | Constraint adherence (exclusions, BPM, energy) | 100% | 100% |
 | Rationale grounding (cites real metadata or notes) | 100% | 100% |
 | Hallucination rate (tracks absent from `songs.csv`) | 0% | 0% |
-| **Mean rationale length** | **88 chars** | **142 chars** |
+| **Mean rationale length** | **94 chars** | **140 chars** |
 | **Rationales citing a concrete numeric feature** | **37%** | **100%** |
 
 † Both arms were called with `response_mime_type="application/json"`, so the
@@ -213,10 +213,9 @@ bold represent a measured prompt effect.
   the few-shot examples and the filtered candidate pool bought **zero** measurable
   correctness on these six prompts.
 - **The measurable effect is specificity.** Rationales citing a concrete number
-  went from 37% to 100%, and mean length from 88 to 142 characters. The
-  zero-shot arm wrote *"a relaxing track that fits the mood"*; the specialised arm
-  wrote *"78 BPM with 0.42 energy and a muted Rhodes figure that never resolves"*.
-  That is a real difference in usefulness, and it is the one the prompt earned.
+  went from 37% to 100%, and mean length from 94 to 140 characters. That is a real
+  difference in usefulness, and it is the one the prompt earned. Real captured
+  output from both arms is reproduced in §6.3.
 - **This does not retire the candidate pool or the guardrails, but it does
   reframe them.** Six prompts, one run, one small model, zero observed
   hallucinations — that is weak evidence of safety, not proof of it. The same model
@@ -250,6 +249,50 @@ This table is kept, clearly labelled, because it is the most useful methodologic
 lesson in the project: **a baseline you implement yourself will confirm whatever
 you believed when you wrote it.** The real comparison was cheap — 24 API calls —
 and it overturned the headline claim.
+
+
+### 6.3 Baseline vs specialised output, verbatim
+
+Captured from the run above and stored in
+`logs/ablation_report_gemini.json` under `sample_rationales`. Each pair is the
+**first track of the same playlist for the same prompt**, from the two arms.
+
+**Prompt:** *"I need three lofi tracks under 90 BPM for a late-night coding session."*
+
+| | Track | Rationale |
+|---|---|---|
+| A — zero-shot | `#2` Midnight Coding | "At 78 BPM, this lofi track is perfectly paced for deep work and late-night productivity." |
+| B — specialised | `#4` Library Rain | "At 72 BPM with high acousticness, this track provides a textural, calm foundation for starting a late-night session." |
+
+**Prompt:** *"Build me a 4-song workout playlist that climbs in intensity, but no metal…"*
+
+| | Track | Rationale |
+|---|---|---|
+| A — zero-shot | `#10` Rooftop Lights | "Starts the workout with a steady, upbeat indie pop rhythm at 124 BPM." |
+| B — specialised | `#10` Rooftop Lights | "At 124 BPM, this serves as the entry point for the workout, using its high valence and danceable groove to build momentum." |
+
+**Prompt:** *"Five songs for a dinner party with friends - nothing too loud."*
+
+| | Track | Rationale |
+|---|---|---|
+| A — zero-shot | `#2` Midnight Coding | "The lofi beat provides a steady, unobtrusive rhythm that encourages conversation." |
+| B — specialised | `#7` Coffee Shop Stories | "At 90 BPM with high acousticness, this brushed-kit jazz track is designed to sit under conversation without demanding attention." |
+
+**What these show.** The rationale difference is consistent and matches the
+metric: Arm A names one feature and reaches for generic praise ("perfectly
+paced"); Arm B names two or three and ties them to the stated use ("designed to
+sit under conversation without demanding attention", which echoes the retrieved
+editorial note for that track).
+
+**But the third pair is the more honest finding, and it is not about the prompt.**
+Asked for dinner-party music, the zero-shot arm opened with a *lofi coding track*
+— defensible on raw features, wrong for the room. The specialised arm opened with
+the catalog's jazz track, which the editorial notes file under "dinner party" and
+"cafe background". That gap comes from the **candidate pool and the editorial
+ranking**, not from the persona or the few-shot examples: Arm A was handed all 17
+tracks and had to guess, Arm B was handed a pre-ranked shortlist. It is the
+clearest evidence in this card that §5's retrieval work, not §6's prompt work, is
+what changes *which* tracks get recommended.
 
 ---
 
@@ -420,7 +463,7 @@ are worth recording because offline testing could not have produced them:
 ## 11. Reproducing Everything in This Card
 
 ```bash
-pytest -q                                      # 48 unit tests
+pytest -q                                      # 51 unit tests
 python tests/eval_harness.py                   # §7 clean run
 python tests/eval_harness.py --inject-faults   # §7 fault-injected run
 python tests/ablations.py                      # §5 and §6 tables

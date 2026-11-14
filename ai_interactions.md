@@ -584,12 +584,12 @@ outputs rather than estimates.
 New: `src/schemas.py`, `src/retrieval.py`, `src/prompts.py`, `src/llm_client.py`,
 `src/guardrails.py`, `src/tracing.py`, `data/editorial_notes.json`,
 `tests/eval_harness.py`, `tests/ablations.py`, `architecture.mmd`,
-`logs/agent_traces.json`.
+`run_app.py`, `logs/agent_traces.json`.
 Rewritten: `src/main.py` (Streamlit UI + CLI), `README.md`, `model_card.md`, this
 file, `requirements.txt`.
 Extended in place: `src/recommender.py` (the baseline scorer is untouched;
 `MusicCuratorAgent` was added beneath it) and `tests/test_recommender.py` (the five
-starter tests are unchanged; 43 more were added).
+starter tests are unchanged; 46 more were added).
 
 **What did you verify or fix manually?**
 

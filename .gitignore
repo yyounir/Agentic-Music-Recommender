@@ -14,3 +14,6 @@ venv/
 # Pytest cache
 .pytest_cache/
 .env
+
+# Scratch run logs (reports and traces ARE committed)
+logs/_*.log

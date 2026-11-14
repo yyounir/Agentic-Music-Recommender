@@ -13,8 +13,58 @@
       "hallucination_rate": 0.0,
       "tracks": 19,
       "fabricated_tracks": 0,
-      "mean_rationale_chars": 87.84210526315789,
-      "rationales_citing_a_number": 0.3684210526315789
+      "mean_rationale_chars": 94.15789473684211,
+      "rationales_citing_a_number": 0.3684210526315789,
+      "sample_rationales": [
+        {
+          "query": "I need three lofi tracks under 90 BPM for a late-night coding session.",
+          "playlist_name": "Late-Night Coding Focus",
+          "song_id": 2,
+          "title": "Midnight Coding",
+          "artist": "LoRoom",
+          "reason": "At 78 BPM, this lofi track is perfectly paced for deep work and late-night productivity."
+        },
+        {
+          "query": "Build me a 4-song workout playlist that climbs in intensity, but no metal, and everything has to be at least 120 BPM.",
+          "playlist_name": "Ascending Workout Pulse",
+          "song_id": 10,
+          "title": "Rooftop Lights",
+          "artist": "Indigo Parade",
+          "reason": "Starts the workout with a steady, upbeat indie pop rhythm at 124 BPM."
+        },
+        {
+          "query": "Five songs for a dinner party with friends - nothing too loud.",
+          "playlist_name": "Dinner Party Chill",
+          "song_id": 2,
+          "title": "Midnight Coding",
+          "artist": "LoRoom",
+          "reason": "The lofi beat provides a steady, unobtrusive rhythm that encourages conversation."
+        },
+        {
+          "query": "It is raining and I am feeling nostalgic. Give me 3 acoustic songs.",
+          "playlist_name": "Rainy Day Nostalgia",
+          "song_id": 17,
+          "title": "Paper Kites",
+          "artist": "Wild Fern",
+          "reason": "The folk instrumentation provides a warm, acoustic, and nostalgic atmosphere that pairs perfectly with a rainy day."
+        },
+        {
+          "query": "Three tracks for a late night drive through the city.",
+          "playlist_name": "Midnight City Cruise",
+          "song_id": 8,
+          "title": "Night Drive Loop",
+          "artist": "Neon Echo",
+          "reason": "The synthwave genre and steady 110 BPM tempo are perfectly tailored for a late-night urban driving experience."
+        },
+        {
+          "query": "Two genuinely sad songs, not just slow ones.",
+          "playlist_name": "Melancholy Reflections",
+          "song_id": 13,
+          "title": "Glass Cathedral",
+          "artist": "Silver Meridian",
+          "reason": "The classical arrangement evokes a profound sense of isolation and fragile beauty, creating a genuinely sorrowful listening experience."
+        }
+      ]
     },
     "specialised": {
       "cases": 6,
@@ -25,8 +75,58 @@
       "hallucination_rate": 0.0,
       "tracks": 19,
       "fabricated_tracks": 0,
-      "mean_rationale_chars": 141.6315789473684,
-      "rationales_citing_a_number": 1.0
+      "mean_rationale_chars": 140.26315789473685,
+      "rationales_citing_a_number": 1.0,
+      "sample_rationales": [
+        {
+          "query": "I need three lofi tracks under 90 BPM for a late-night coding session.",
+          "playlist_name": "Late-Night Coding Focus",
+          "song_id": 4,
+          "title": "Library Rain",
+          "artist": "Paper Lanterns",
+          "reason": "At 72 BPM with high acousticness, this track provides a textural, calm foundation for starting a late-night session."
+        },
+        {
+          "query": "Build me a 4-song workout playlist that climbs in intensity, but no metal, and everything has to be at least 120 BPM.",
+          "playlist_name": "Workout Progression",
+          "song_id": 10,
+          "title": "Rooftop Lights",
+          "artist": "Indigo Parade",
+          "reason": "At 124 BPM, this serves as the entry point for the workout, using its high valence and danceable groove to build momentum."
+        },
+        {
+          "query": "Five songs for a dinner party with friends - nothing too loud.",
+          "playlist_name": "Dinner Party Conversation",
+          "song_id": 7,
+          "title": "Coffee Shop Stories",
+          "artist": "Slow Stereo",
+          "reason": "At 90 BPM with high acousticness, this brushed-kit jazz track is designed to sit under conversation without demanding attention."
+        },
+        {
+          "query": "It is raining and I am feeling nostalgic. Give me 3 acoustic songs.",
+          "playlist_name": "Rainy Day Reflection",
+          "song_id": 4,
+          "title": "Library Rain",
+          "artist": "Paper Lanterns",
+          "reason": "At 72 BPM with 0.86 acousticness, the tape hiss provides a textural match for a rainy day while maintaining a calm, lofi atmosphere."
+        },
+        {
+          "query": "Three tracks for a late night drive through the city.",
+          "playlist_name": "City Transit",
+          "song_id": 15,
+          "title": "Velvet Weekend",
+          "artist": "The Marigold Club",
+          "reason": "At 112 BPM with restrained volume, this funk track provides a deep pocket for city driving without the intensity of a dancefloor."
+        },
+        {
+          "query": "Two genuinely sad songs, not just slow ones.",
+          "playlist_name": "Melancholic Resonance",
+          "song_id": 16,
+          "title": "Blue Hour Train",
+          "artist": "Harborlight",
+          "reason": "With a valence of 0.29, this is the lowest-valence track in the catalog, providing the honest, blues-based sadness requested."
+        }
+      ]
     }
   }
 }

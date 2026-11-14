@@ -1,4 +1,149 @@
 {
+  "rag_ablation": {
+    "rows": [
+      {
+        "prompt": "Something for a deep focus work session.",
+        "ideal": [
+          2,
+          4,
+          6,
+          9
+        ],
+        "ideal_basis": "energy <= 0.42 and tempo <= 80 BPM with no vocal hook",
+        "top3_without_rag": [
+          9,
+          12,
+          1
+        ],
+        "top3_with_rag": [
+          9,
+          2,
+          6
+        ],
+        "precision_without_rag": 0.3333333333333333,
+        "precision_with_rag": 1.0,
+        "editorial_passages_retrieved": 7
+      },
+      {
+        "prompt": "Three tracks for a late night drive through the city - neon, overcast, not cheerful.",
+        "ideal": [
+          3,
+          8,
+          16
+        ],
+        "ideal_basis": "valence <= 0.49 with a beat (energy >= 0.46)",
+        "top3_without_rag": [
+          12,
+          17,
+          5
+        ],
+        "top3_with_rag": [
+          8,
+          12,
+          17
+        ],
+        "precision_without_rag": 0.0,
+        "precision_with_rag": 0.3333333333333333,
+        "editorial_passages_retrieved": 8
+      },
+      {
+        "prompt": "I just got bad news and I want to sit with it. Genuinely sad songs.",
+        "ideal": [
+          11,
+          13,
+          16
+        ],
+        "ideal_basis": "valence <= 0.73 with low energy and high acousticness",
+        "top3_without_rag": [
+          16,
+          12,
+          1
+        ],
+        "top3_with_rag": [
+          16,
+          13,
+          11
+        ],
+        "precision_without_rag": 0.3333333333333333,
+        "precision_with_rag": 1.0,
+        "editorial_passages_retrieved": 4
+      },
+      {
+        "prompt": "Background music for a dinner party - nothing too loud.",
+        "ideal": [
+          7,
+          10,
+          12,
+          15
+        ],
+        "ideal_basis": "energy 0.37-0.79, valence >= 0.71, tempo 90-124 BPM",
+        "top3_without_rag": [
+          12,
+          1,
+          17
+        ],
+        "top3_with_rag": [
+          7,
+          15,
+          12
+        ],
+        "precision_without_rag": 0.3333333333333333,
+        "precision_with_rag": 1.0,
+        "editorial_passages_retrieved": 5
+      },
+      {
+        "prompt": "Lift my mood without hyping me up.",
+        "ideal": [
+          1,
+          10,
+          12,
+          17
+        ],
+        "ideal_basis": "valence >= 0.81 with energy <= 0.82",
+        "top3_without_rag": [
+          12,
+          1,
+          17
+        ],
+        "top3_with_rag": [
+          15,
+          12,
+          17
+        ],
+        "precision_without_rag": 1.0,
+        "precision_with_rag": 0.6666666666666666,
+        "editorial_passages_retrieved": 6
+      },
+      {
+        "prompt": "I need to wind down before sleep.",
+        "ideal": [
+          4,
+          6,
+          13
+        ],
+        "ideal_basis": "energy <= 0.35, tempo <= 72 BPM, acousticness >= 0.86",
+        "top3_without_rag": [
+          12,
+          1,
+          17
+        ],
+        "top3_with_rag": [
+          13,
+          4,
+          2
+        ],
+        "precision_without_rag": 0.0,
+        "precision_with_rag": 0.6666666666666666,
+        "editorial_passages_retrieved": 7
+      }
+    ],
+    "summary": {
+      "prompts": 6,
+      "mean_precision_at_3_without_rag": 0.3333333333333333,
+      "mean_precision_at_3_with_rag": 0.7777777777777778,
+      "prompts_whose_selection_changed": 6
+    }
+  },
   "prompt_ablation": {
     "notices": [],
     "simulated_baseline": true,
@@ -14,7 +159,57 @@
       "tracks": 30,
       "fabricated_tracks": 6,
       "mean_rationale_chars": 27.6,
-      "rationales_citing_a_number": 0.0
+      "rationales_citing_a_number": 0.0,
+      "sample_rationales": [
+        {
+          "query": "I need three lofi tracks under 90 BPM for a late-night coding session.",
+          "playlist_name": "Your Playlist",
+          "song_id": 101,
+          "title": "Bohemian Rhapsody",
+          "artist": "Queen",
+          "reason": "A classic that everyone loves."
+        },
+        {
+          "query": "Build me a 4-song workout playlist that climbs in intensity, but no metal, and everything has to be at least 120 BPM.",
+          "playlist_name": "Your Playlist",
+          "song_id": 101,
+          "title": "Bohemian Rhapsody",
+          "artist": "Queen",
+          "reason": "A classic that everyone loves."
+        },
+        {
+          "query": "Five songs for a dinner party with friends - nothing too loud.",
+          "playlist_name": "Your Playlist",
+          "song_id": 101,
+          "title": "Bohemian Rhapsody",
+          "artist": "Queen",
+          "reason": "A classic that everyone loves."
+        },
+        {
+          "query": "It is raining and I am feeling nostalgic. Give me 3 acoustic songs.",
+          "playlist_name": "Your Playlist",
+          "song_id": 101,
+          "title": "Bohemian Rhapsody",
+          "artist": "Queen",
+          "reason": "A classic that everyone loves."
+        },
+        {
+          "query": "Three tracks for a late night drive through the city.",
+          "playlist_name": "Your Playlist",
+          "song_id": 101,
+          "title": "Bohemian Rhapsody",
+          "artist": "Queen",
+          "reason": "A classic that everyone loves."
+        },
+        {
+          "query": "Two genuinely sad songs, not just slow ones.",
+          "playlist_name": "Your Playlist",
+          "song_id": 101,
+          "title": "Bohemian Rhapsody",
+          "artist": "Queen",
+          "reason": "A classic that everyone loves."
+        }
+      ]
     },
     "specialised": {
       "cases": 6,
@@ -26,7 +221,57 @@
       "tracks": 19,
       "fabricated_tracks": 0,
       "mean_rationale_chars": 175.78947368421052,
-      "rationales_citing_a_number": 1.0
+      "rationales_citing_a_number": 1.0,
+      "sample_rationales": [
+        {
+          "query": "I need three lofi tracks under 90 BPM for a late-night coding session.",
+          "playlist_name": "Deep Focus Set",
+          "song_id": 2,
+          "title": "Midnight Coding",
+          "artist": "LoRoom",
+          "reason": "Lofi at 78 bpm with 0.42 energy and 0.56 valence; editorially filed under deep work; reads as nocturnal. Editorial note: Dusty 78 BPM drum loop under a muted Rhodes figure."
+        },
+        {
+          "query": "Build me a 4-song workout playlist that climbs in intensity, but no metal, and everything has to be at least 120 BPM.",
+          "playlist_name": "Workout Set",
+          "song_id": 5,
+          "title": "Gym Hero",
+          "artist": "Max Pulse",
+          "reason": "Pop at 132 bpm with 0.93 energy and 0.77 valence; editorially filed under workout; reads as pumped. Editorial note: Peak-energy pop engineered for a gym PA: 132 BPM, near-zero acousticness, and a chorus that lands on the downbeat."
+        },
+        {
+          "query": "Five songs for a dinner party with friends - nothing too loud.",
+          "playlist_name": "Hosting Set",
+          "song_id": 7,
+          "title": "Coffee Shop Stories",
+          "artist": "Slow Stereo",
+          "reason": "Jazz at 90 bpm with 0.37 energy and 0.71 valence; editorially filed under hosting friends; reads as conversational. Editorial note: Brushed-kit jazz at 90 BPM with high acousticness and relaxed phrasing."
+        },
+        {
+          "query": "It is raining and I am feeling nostalgic. Give me 3 acoustic songs.",
+          "playlist_name": "Nostalgia Set",
+          "song_id": 11,
+          "title": "Desert Postcard",
+          "artist": "Juniper Trail",
+          "reason": "Country at 96 bpm with 0.54 energy and 0.68 valence; reads as nostalgic. Editorial note: Country storytelling at 96 BPM with mid acousticness and a lyric built on distance and memory."
+        },
+        {
+          "query": "Three tracks for a late night drive through the city.",
+          "playlist_name": "Late Night Drive Set",
+          "song_id": 8,
+          "title": "Night Drive Loop",
+          "artist": "Neon Echo",
+          "reason": "Synthwave at 110 bpm with 0.75 energy and 0.49 valence; editorially filed under night drive; reads as neon. Editorial note: Synthwave at 110 BPM with mid-low valence: the arpeggio glitters while the bassline stays overcast."
+        },
+        {
+          "query": "Two genuinely sad songs, not just slow ones.",
+          "playlist_name": "Heartbreak Set",
+          "song_id": 16,
+          "title": "Blue Hour Train",
+          "artist": "Harborlight",
+          "reason": "Blues at 84 bpm with 0.46 energy and 0.29 valence; editorially filed under heartbreak; reads as melancholic. Editorial note: Blues at 84 BPM with the lowest valence in the catalog."
+        }
+      ]
     }
   }
 }

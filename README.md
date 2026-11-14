@@ -47,7 +47,7 @@ unchanged and still tested (`Song`, `UserProfile`, `Recommender`, `score_song`,
 | Explanations = score arithmetic | Rationales grounded in track metadata and editorial curation notes |
 | No validation of output | Four deterministic guardrails + a three-attempt self-correction loop + verified fallback |
 | Terminal print only | Streamlit UI, CLI demo mode, and a structured JSON trace of every run |
-| No evaluation | 48 unit tests, a 10-prompt benchmark harness, and two ablation studies |
+| No evaluation | 51 unit tests, a 10-prompt benchmark harness, and two ablation studies |
 
 ---
 
@@ -56,20 +56,27 @@ unchanged and still tested (`Song`, `UserProfile`, `Recommender`, `score_song`,
 ```mermaid
 flowchart TD
     subgraph INPUT["Input"]
-        UI["Streamlit UI<br/>streamlit run src/main.py"]
+        UI["Streamlit UI<br/>python run_app.py"]
         CLI["CLI<br/>python -m src.main --demo | --query"]
     end
 
     UI --> VAL
     CLI --> VAL
     VAL["validate_query()<br/>type, empty, length limits<br/>src/recommender.py"]
-
     VAL --> PLAN
 
     subgraph STEP1["Step 1 - Intent Planning"]
-        PLAN["Intent Planner<br/>Gemini + response_schema=Plan<br/>(offline heuristic planner when no API key)"]
-        PLANV["Pydantic validation<br/>Plan: moods, genres, contexts,<br/>exclusions, BPM/energy bounds,<br/>track_count, unsupported_requests"]
-        PLAN --> PLANV
+        PLAN["Primary planner<br/>Gemini + response_schema=Plan<br/>closed vocabularies for genre,<br/>mood and listening context"]
+        PLANOK{"Parsed into a<br/>valid Plan?"}
+        PLANFB["Fallback planner<br/>deterministic rule-based<br/>no network required"]
+        PLANBARE["Unconstrained plan<br/>user warned explicitly"]
+        PLANV["Validated Plan (Pydantic)<br/>moods, genres, contexts, exclusions,<br/>BPM + energy bounds, track_count,<br/>unsupported_requests"]
+        PLAN --> PLANOK
+        PLANOK -- "yes" --> PLANV
+        PLANOK -- "no (API down, quota, bad JSON)" --> PLANFB
+        PLANFB -- "ok" --> PLANV
+        PLANFB -- "also failed" --> PLANBARE
+        PLANBARE --> PLANV
     end
 
     PLANV --> RET
@@ -78,25 +85,30 @@ flowchart TD
         RET["retrieve_candidates()<br/>src/retrieval.py"]
         CSV[("data/songs.csv<br/>17 tracks")]
         NOTES[("data/editorial_notes.json<br/>17 track notes<br/>14 genre notes<br/>8 context notes")]
-        PANDAS["Deterministic Pandas filter<br/>exclusions + BPM + energy bounds<br/>(hard constraints, never relaxed)"]
+        PANDAS["Deterministic Pandas filter<br/>exclusions + BPM + energy bounds<br/>hard constraints, never relaxed"]
         LEX["Lexical retrieval over notes<br/>track / genre / context passages"]
-        BLEND["Blended ranking<br/>total = feature_score + 2.5 x editorial_score<br/>context notes add genre priors + tempo priors"]
-        RET --> CSV --> PANDAS
-        RET --> NOTES --> LEX
+        BLEND["Blended ranking<br/>total = feature_score + 2.5 x editorial_score<br/>context notes add genre and tempo priors"]
+        RET --> CSV
+        CSV --> PANDAS
+        RET --> NOTES
+        NOTES --> LEX
         PANDAS --> BLEND
         LEX --> BLEND
     end
 
     BLEND --> EMPTY{"Any track satisfies<br/>every hard constraint?"}
-    EMPTY -- "no" --> NOMATCH["Explicit empty result<br/>+ near-miss report<br/>(no model call wasted)"]
+    EMPTY -- "no" --> NOMATCH["Explicit empty result<br/>+ near-miss report<br/>zero model calls"]
     EMPTY -- "yes" --> CUR
 
     subgraph STEP3["Step 3 - Specialised Curation"]
         CUR["Music Curator persona<br/>constrained system prompt<br/>+ 2 few-shot examples<br/>+ closed candidate pool<br/>src/prompts.py"]
+        ENGINE["Engine layer (Strategy)<br/>GeminiEngine or OfflineHeuristicEngine<br/>transport retry on 429/5xx with backoff<br/>then MODEL_FALLBACKS chain"]
         OUT["Structured output<br/>CuratedPlaylist (Pydantic)"]
-        CUR --> OUT
+        CUR --> ENGINE
+        ENGINE --> OUT
     end
 
+    ENGINE -- "every model exhausted" --> FALL
     OUT --> VER
 
     subgraph STEP4["Step 4 - Guardrail Verification"]
@@ -105,15 +117,21 @@ flowchart TD
         C2["hallucination<br/>song_id exists; title + artist<br/>match songs.csv verbatim"]
         C3["constraint<br/>exclusions, BPM, energy"]
         C4["grounding<br/>rationale cites real metadata"]
-        VER --> C1 & C2 & C3 & C4
+        VER --> C1
+        VER --> C2
+        VER --> C3
+        VER --> C4
     end
 
-    C1 & C2 & C3 & C4 --> GATE{"All checks pass?"}
+    C1 --> GATE{"All checks pass?"}
+    C2 --> GATE
+    C3 --> GATE
+    C4 --> GATE
 
     GATE -- "no, retries left (max 3)" --> FIX["Self-correction<br/>violations fed back verbatim<br/>+ candidate pool re-sent"]
     FIX --> CUR
 
-    GATE -- "no, retries exhausted" --> FALL["Deterministic fallback<br/>top-ranked verified candidates<br/>(no model involved)"]
+    GATE -- "no, retries exhausted" --> FALL["Deterministic fallback<br/>top-ranked verified candidates<br/>no model involved"]
     GATE -- "yes" --> FINAL
 
     FALL --> FINAL
@@ -128,7 +146,7 @@ flowchart TD
     classDef danger fill:#fdf0ee,stroke:#c2705c,stroke-width:1px,color:#3f1a13
     class CSV,NOTES,LOG store
     class C1,C2,C3,C4,VER check
-    class FIX,FALL,NOMATCH danger
+    class FIX,FALL,NOMATCH,PLANFB,PLANBARE danger
 ```
 
 The same diagram lives in [architecture.mmd](architecture.mmd).
@@ -145,7 +163,7 @@ The same diagram lives in [architecture.mmd](architecture.mmd).
 | [src/recommender.py](src/recommender.py) | Baseline scorer **and** `MusicCuratorAgent` (the four-step loop) |
 | [src/tracing.py](src/tracing.py) | Atomic append-only JSON trace log |
 | [src/main.py](src/main.py) | Streamlit UI + CLI (`--demo`, `--guardrail-demo`, `--query`, `--baseline`) |
-| [tests/test_recommender.py](tests/test_recommender.py) | 48 unit tests |
+| [tests/test_recommender.py](tests/test_recommender.py) | 51 unit tests |
 | [tests/eval_harness.py](tests/eval_harness.py) | 10-prompt benchmark + summary report |
 | [tests/ablations.py](tests/ablations.py) | RAG and prompt ablation studies behind the model-card tables |
 | [data/editorial_notes.json](data/editorial_notes.json) | Second knowledge source: 17 track notes, 14 genre notes, 8 context notes |
@@ -222,16 +240,48 @@ python -c "from google import genai,os; from src.llm_client import load_dotenv; 
 > §4 and §5 were produced with `--engine offline` so they are byte-reproducible;
 > §6.4 reports the real Gemini benchmark.
 
-### 3.4 Run it
+### 3.4 Launch the app
 
 ```bash
-streamlit run src/main.py                 # interactive UI
+python run_app.py
+```
+
+[run_app.py](run_app.py) checks dependencies, data files and your API key
+*before* starting Streamlit, so configuration problems appear in the terminal
+rather than as a stack trace in the browser:
+
+```text
+==============================================================
+ Agentic Music Recommender - starting Streamlit UI
+==============================================================
+[ok] Core dependencies installed
+[ok] Catalog and editorial notes found
+[ok] GEMINI_API_KEY found (.env)
+     Default model: gemini-3.6-flash
+     Pick the engine and model in the app's sidebar.
+--------------------------------------------------------------
+ Opening http://localhost:8501
+```
+
+In the sidebar you can switch between the **offline** engine (instant,
+deterministic) and **gemini** (better rationales, 15–60 s per request), choose
+the Gemini model, set playlist length and retry budget, and tick
+**“Inject a hallucinated track”** to watch the verifier catch a fabricated song
+and the agent self-correct in real time. The full reasoning trace for each run is
+rendered under **Agent reasoning trace**.
+
+### 3.5 All commands
+
+```bash
+python run_app.py                         # interactive UI (recommended)
+python run_app.py --port 8503             #   ... on a different port
+streamlit run src/main.py                 #   ... or start Streamlit directly
 python -m src.main --demo                 # 3 example prompts, end to end
 python -m src.main --guardrail-demo       # watch each guardrail fire and recover
 python -m src.main --query "5 calm acoustic songs for sleep"
 python -m src.main --query "..." --engine gemini   # force the Gemini path
 python -m src.main --baseline             # the original Module 3 simulation
-pytest -q                                 # 48 unit tests
+pytest -q                                 # 51 unit tests
 python tests/eval_harness.py              # 10-prompt benchmark
 python tests/eval_harness.py --inject-faults   # benchmark with injected failures
 python tests/ablations.py                 # model-card comparison tables
@@ -651,8 +701,8 @@ This path is covered by `test_agent_stops_after_max_retries_and_falls_back`.
 
 ```bash
 $ pytest -q
-................................................                         [100%]
-48 passed in 1.60s
+...................................................                      [100%]
+51 passed in 1.01s
 ```
 
 Coverage includes the five original starter tests (unchanged), input validation,
@@ -660,6 +710,11 @@ Coverage includes the five original starter tests (unchanged), input validation,
 title / artist, the retry loop, retry exhaustion, an engine that raises, the
 unsatisfiable case, prompt injection, the multi-source RAG ranking effect, and
 trace-log integrity.
+
+Three of them are regressions pinned to bugs the live Gemini API exposed, not
+bugs imagined in advance: a failed planner must not silently drop the listener's
+constraints, a transport outage must not consume the self-correction budget, and
+a completely dead engine must still enforce the plan's hard constraints.
 
 ### 6.2 Benchmark harness
 
@@ -733,8 +788,8 @@ honest regression, reported rather than dropped.
 project assumed.** On correctness the specialised prompt bought nothing measurable:
 both arms scored 100% format adherence, 100% constraint adherence and 0%
 hallucination across 19 tracks. The measurable gain was rationale specificity —
-**37% → 100%** of rationales citing a concrete numeric feature, mean length 88 →
-142 chars.
+**37% → 100%** of rationales citing a concrete numeric feature, mean length 94 →
+140 chars. Verbatim side-by-side output from both arms is in model_card.md §6.3.
 
 Before a key was available the same comparison used a *simulated* baseline that
 predicted 17% format adherence and a 20% hallucination rate for the zero-shot arm.
