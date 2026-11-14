@@ -166,9 +166,7 @@ Scroll down to the **"Agent reasoning trace"** section and expand the accordions
 
 ---
 
-## 3. Project Accomplishments (XYZ Formula)
-
-The following bullet points summarize the core technical achievements and quantified impact of this project using Google's **XYZ Formula** (*"Accomplished [X] as measured by [Y], by doing [Z]"*):
+## Project Accomplishments
 
 * **Accomplished a 0% hallucination rate and 100% constraint adherence** across 10 benchmark scenarios, as measured by an automated evaluation test harness and fault-injection testing, by engineering a four-stage deterministic guardrail verification pipeline with an automated 3-attempt self-correction feedback loop and verified fallback.
 * **Improved recommendation relevance for niche listening contexts from 0.33 to 0.78 Mean Precision@3 (+136%)**, as measured by an ablation study comparing retrieved recommendations against ground-truth audio feature profiles, by designing a multi-source RAG architecture that deterministically filters catalog metadata with Pandas and blends lexical retrieval over 39 curated editorial notes.
